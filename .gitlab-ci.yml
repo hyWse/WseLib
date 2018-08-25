@@ -1,0 +1,19 @@
+image: maven:latest
+
+stages:
+  - build
+
+cache:
+  paths:
+    - .m2/repository/
+    - target/
+
+build:
+  stage: build
+  script:
+    - mvn clean package install
+  artifacts:
+    paths:
+      - target/*.jar
+  only:
+    - master
