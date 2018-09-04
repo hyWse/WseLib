@@ -248,7 +248,7 @@ public class WseTextUtil {
      *
      * @return Your input in camel case
      */
-    public String toCamelCase(String input) {
+    public static String toCamelCase(String input) {
 
         String res = "";
         char[] chars = input.toCharArray();
