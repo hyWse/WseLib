@@ -1,6 +1,8 @@
 package eu.hywse.lib.mysql;
 
 import eu.hywse.lib.misc.WseMap;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.io.File;
 import java.io.IOException;
@@ -23,17 +25,32 @@ import java.util.Map;
  */
 public abstract class WseMySqlWrapper {
 
+    @Getter
     private String name;
 
+    @Getter
     private String host;
+    @Getter
     private String database;
+    @Getter
     private String user;
-    private String password;
+    @Getter
     private int port;
 
+    private String password;
+
+    @Getter
     private Connection connection;
 
+    @Getter
+    @Setter
     private boolean debugMode;
+
+    @Getter
+    private boolean autoReconnect = true, useSsl = false;
+
+    @Getter
+    private boolean isReadOnly = false;
 
     /* ==========================================================================================================================================
      * No SQL-File
@@ -62,7 +79,10 @@ public abstract class WseMySqlWrapper {
         this.port = port;
         this.name = name;
 
-        connect(ar, ssl);
+        this.autoReconnect = ar;
+        this.useSsl = ssl;
+
+        connect();
     }
 
     /* ==========================================================================================================================================
@@ -206,8 +226,11 @@ public abstract class WseMySqlWrapper {
         this.password = pass;
         this.port = portInt;
 
+        this.autoReconnect = ar;
+        this.useSsl = ssl;
+
         /* connect */
-        connect(ar, ssl);
+        connect();
 
         log(" ");
     }
@@ -252,17 +275,23 @@ public abstract class WseMySqlWrapper {
     /**
      * Connects to the specified database
      */
-    public void connect(boolean autoReconnect, boolean ssl) {
+    public void connect() {
         try {
             // connect
-            String cS = getConnectionString(autoReconnect, ssl);
+            String cS = getConnectionString(this.autoReconnect, this.useSsl);
             log("Connecting to \"" + cS + "\"...");
 
             this.connection = DriverManager.getConnection(cS, user, password);
+            this.isReadOnly = this.connection.isReadOnly();
 
             // success
             log("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
             log("The connection to the MySQL database was successfully established.");
+
+            if (isReadOnly) {
+                log("[!] Important! The connection is read-only. I won't be able to make updates. [!]");
+            }
+
             log("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
         } catch (SQLException e) {
 
@@ -276,11 +305,27 @@ public abstract class WseMySqlWrapper {
     /**
      * Returns the connection string of the login data
      *
+     * @param autoReconnect Auto-Reconnect  | Should the client automatically reconnect when the connection is lost?
+     * @param ssl           useSSL          | Should the client try to connect over secure connection?
+     * @param maxReconnects Max-Reconnects  | How often should the client try to reconnect in case of an error?
+     * @return String           jdbc - Connection String
+     */
+    public String getConnectionString(boolean autoReconnect, boolean ssl, int maxReconnects) {
+        return "jdbc:mysql://" + host + ":" + port + "/" + database +
+                (autoReconnect ? "?autoReconnect=true" : "") +
+                (ssl ? (autoReconnect ? "&" : "?") + "useSSL=" + ssl : "") +
+                (ssl || autoReconnect ? "&" : "?") + "maxReconnects=" + maxReconnects;
+    }
+
+    /**
+     * Returns the connection string of the login data
+     *
      * @param autoReconnect Auto-Reconnect | Should the database automatically reconnect when the connection is lost?
-     * @return String
+     * @param ssl           useSSL          | Should the client try to connect over secure connection?
+     * @return String           jdbc - Connection String
      */
     public String getConnectionString(boolean autoReconnect, boolean ssl) {
-        return "jdbc:mysql://" + host + ":" + port + "/" + database + (autoReconnect ? "?autoReconnect=true" : "") + (ssl ? (autoReconnect ? "&" : "?") + "useSSL=" + ssl : "");
+        return getConnectionString(autoReconnect, ssl, 10);
     }
 
     /**
@@ -308,6 +353,8 @@ public abstract class WseMySqlWrapper {
      * @return int | affected rows
      */
     public int update(String query, Object... obj) {
+        checkConnectionAndReconnect();
+
         PreparedStatement statement = null;
         int ret = -1;
 
@@ -339,6 +386,8 @@ public abstract class WseMySqlWrapper {
      * @return ResultSet
      */
     public ResultSet executeQuery(String query, Object... objects) {
+        checkConnectionAndReconnect();
+
         PreparedStatement statement = null;
         ResultSet ret = null;
 
@@ -365,9 +414,11 @@ public abstract class WseMySqlWrapper {
      * Returns a map. Key = column name, Value = column value
      *
      * @param query Query
-     * @return Map<String       ,               Object> | Map<Column, Value>
+     * @return Map<String                               ,                                                               Object> | Map<Column, Value>
      */
     public WseMap executeQueryMapGet(String query, Object... objects) {
+        checkConnectionAndReconnect();
+
         ResultSet set = executeQuery(query, objects);
         WseMap ret = new WseMap();
 
@@ -406,9 +457,11 @@ public abstract class WseMySqlWrapper {
      * Returns a map. Key = column name, Value = column value
      *
      * @param query Query
-     * @return Map<String                               ,                                                               Object> | Map<Column, Value>
+     * @return Map<String                                                                                                                               ,                                                                                                                                                                                                                                                               Object> | Map<Column, Value>
      */
     public WseMap executeQueryMapSelect(String query, Object... objects) {
+        checkConnectionAndReconnect();
+
         ResultSet set = executeQuery(query, objects);
         WseMap ret = new WseMap();
 
@@ -530,7 +583,7 @@ public abstract class WseMySqlWrapper {
      * @param meta (ResultSetMetaData) Meta
      * @return int|-1
      */
-    private int getColumnCount(ResultSetMetaData meta) {
+    public int getColumnCount(ResultSetMetaData meta) {
         int r = -1;
 
         try {
@@ -540,6 +593,16 @@ public abstract class WseMySqlWrapper {
         }
 
         return r;
+    }
+
+    /**
+     * Checks if there is still a connection. If not, an attempt is made to establish a new connection.
+     */
+    public void checkConnectionAndReconnect() {
+        if (!isOpen()) {
+            log("+-------------------+ Connection closed. Reconnecting: +-------------------+");
+            connect();
+        }
     }
 
     /**
@@ -577,44 +640,8 @@ public abstract class WseMySqlWrapper {
      * @param message Message
      */
     public void debug(String message) {
-        if (!getDebugMode()) return;
+        if (!isDebugMode()) return;
         System.out.println(String.format("[DEBUG - %s ~ %s]: %s", getName(), new SimpleDateFormat("HH:mm:ss.SS").format(new Date(System.currentTimeMillis())), message));
-    }
-
-    public String getHost() {
-        return host;
-    }
-
-    /*
-     * Getters
-     */
-
-    public String getDatabase() {
-        return database;
-    }
-
-    public String getUser() {
-        return user;
-    }
-
-    public Connection getConnection() {
-        return connection;
-    }
-
-    public boolean getDebugMode() {
-        return this.debugMode;
-    }
-
-    public void setDebugMode(boolean b) {
-        this.debugMode = b;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public int getPort() {
-        return port;
     }
 
     public class WseSqlInfoFileException extends Exception {

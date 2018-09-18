@@ -1,6 +1,6 @@
 package eu.hywse.lib.text;
 
-import org.bukkit.ChatColor;
+//import org.bukkit.WseChatColor;
 
 import java.text.DecimalFormat;
 
@@ -21,23 +21,23 @@ public class WseTextUtil {
     private static DecimalFormat FORMAT = new DecimalFormat("0.00");
 
     /**
-     * Alias to ChatColor#translateAlternateColors
+     * Alias to WseChatColor#translateAlternateColors
      *
      * @param i String | Input
      * @return String | Colorized input
      */
     public static String c(String i) {
-        return ChatColor.translateAlternateColorCodes('&', i);
+        return WseChatColor.translateAlternateColorCodes('&', i);
     }
 
     /**
-     * Alias to ChatColor#stripColor
+     * Alias to WseChatColor#stripColor
      *
      * @param i String | Input
      * @return String | Uncolorized input
      */
     public static String nc(String i) {
-        return ChatColor.stripColor(i);
+        return WseChatColor.stripColor(i);
     }
 
     /**
@@ -95,7 +95,7 @@ public class WseTextUtil {
         }
 
 //        String res = "&8&l< &r" + bar + " &8&l| &r&a&l" + percent + " % &r&8&l>";
-        return ChatColor.translateAlternateColorCodes('&', String.format(format, bar, decimalFormat.format(percent)));
+        return WseChatColor.translateAlternateColorCodes('&', String.format(format, bar, decimalFormat.format(percent)));
     }
 
     /**
