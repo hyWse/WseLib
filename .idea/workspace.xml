@@ -31,13 +31,74 @@
     </treeState>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d8c320c4-0364-4781-954f-3279f8345102" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/eu/hywse/lib/item/WseItemUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/eu/hywse/lib/item/WseItemUtil.class" afterDir="false" />
+    <list default="true" id="d8c320c4-0364-4781-954f-3279f8345102" name="Default" comment="+ Updated WseLocation:&#10;    - countAirBlocksUnderPlayer&#10;    - getSafeLocation&#10;    - saveToConfig&#10;    - getWorldName&#10;    - UPDATED: toString&#10;    &#10;+ Updated MySql:&#10;    - Now using Lombok&#10;    - Now checks every query to see if there is a connection to the MySQL server&#10;&#10;+ WseChatColor&#10;    - Has no function yet, will soon replace ChatColor">
+      <change afterPath="$PROJECT_DIR$/src/main/java/eu/hywse/libv1_4/bukkit/WseAutoQueue.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/eu/hywse/libv1_4/bukkit/WsePlayer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/eu/hywse/libv1_4/bungee/WseBCU.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/eu/hywse/libv1_4/databases/mongodb/AutoDocument.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/eu/hywse/libv1_4/databases/mongodb/DocField.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/eu/hywse/libv1_4/databases/mongodb/MongoManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/eu/hywse/libv1_4/misc/DiscardingCollection.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/eu/hywse/libv1_4/misc/WseQueue.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/eu/hywse/libv1_4/text/WseStringUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/eu/hywse/lib/bukkit/WseCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/eu/hywse/libv1_4/bukkit/WseCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/eu/hywse/lib/bukkit/WseListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/eu/hywse/libv1_4/bukkit/WseListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/eu/hywse/lib/bukkit/WseLocation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/eu/hywse/libv1_4/bukkit/WseLocation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/eu/hywse/lib/bungee/WseBungeeUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/eu/hywse/libv1_4/bukkit/WseBungeeUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/eu/hywse/lib/config/WseConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/eu/hywse/libv1_4/bukkit/config/WseConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/eu/hywse/lib/config/_class/ConfigVariable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/eu/hywse/libv1_4/bukkit/config/_class/ConfigVariable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/eu/hywse/lib/config/_class/WseConfigClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/eu/hywse/libv1_4/bukkit/config/_class/WseConfigClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/eu/hywse/lib/config/json/WseJsonConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/eu/hywse/libv1_4/misc/WseJsonConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/eu/hywse/lib/item/WseItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/eu/hywse/libv1_4/bukkit/item/WseItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/eu/hywse/lib/item/WseItemUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/eu/hywse/libv1_4/bukkit/item/WseItemUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/eu/hywse/lib/misc/WseActionBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/eu/hywse/libv1_4/bukkit/WseActionBar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/eu/hywse/lib/misc/WseMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/eu/hywse/libv1_4/misc/WseMap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/eu/hywse/lib/misc/WseRandom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/eu/hywse/libv1_4/misc/WseRandom.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/eu/hywse/lib/misc/WseSerialize.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/eu/hywse/libv1_4/bukkit/WseSerialize.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/eu/hywse/lib/misc/extension/IterateBlockConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/eu/hywse/libv1_4/bukkit/extension/IterateBlockConsumer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/eu/hywse/lib/mysql/WseAsyncMySqlWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/eu/hywse/libv1_4/databases/mysql/WseAsyncMySqlWrapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/eu/hywse/lib/mysql/WseMySqlWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/eu/hywse/libv1_4/databases/mysql/WseMySqlWrapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/eu/hywse/lib/mysql/bukkit/WseAsyncMySql.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/eu/hywse/libv1_4/databases/mysql/bukkit/WseAsyncMySql.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/eu/hywse/lib/mysql/bukkit/WseMySql.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/eu/hywse/libv1_4/databases/mysql/bukkit/WseMySql.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/eu/hywse/lib/mysql/bungee/WseAsyncMySql.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/eu/hywse/libv1_4/databases/mysql/bungee/WseAsyncMySql.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/eu/hywse/lib/mysql/bungee/WseMySql.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/eu/hywse/libv1_4/databases/mysql/bungee/WseMySql.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/eu/hywse/lib/mysql/raw/WseAsyncMySql.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/eu/hywse/libv1_4/databases/mysql/raw/WseAsyncMySql.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/eu/hywse/lib/mysql/raw/WseMySql.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/eu/hywse/libv1_4/databases/mysql/raw/WseMySql.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/eu/hywse/lib/text/WseChatColor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/eu/hywse/libv1_4/bungee/WseChatColor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/eu/hywse/lib/text/WseTextUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/eu/hywse/libv1_4/bukkit/WseTextUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/WseLib-1.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/eu/hywse/lib/bukkit/WseCommand$ParseMode.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/eu/hywse/lib/bukkit/WseCommand$ReflectCommand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/eu/hywse/lib/bukkit/WseCommand$WseCommandNoPermissionException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/eu/hywse/lib/bukkit/WseCommand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/eu/hywse/lib/bukkit/WseListener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/eu/hywse/lib/bukkit/WseLocation.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/eu/hywse/lib/bungee/WseBungeeUtils.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/eu/hywse/lib/config/WseConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/eu/hywse/lib/config/_class/ConfigVariable.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/eu/hywse/lib/config/_class/WseConfigClass.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/eu/hywse/lib/config/json/WseJsonConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/eu/hywse/lib/item/WseItem.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/eu/hywse/lib/item/WseItemUtil.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/eu/hywse/lib/misc/WseActionBar$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/eu/hywse/lib/misc/WseActionBar$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/eu/hywse/lib/misc/WseActionBar.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/eu/hywse/lib/misc/WseMap.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/eu/hywse/lib/misc/WseRandom.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/eu/hywse/lib/misc/WseSerialize.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/eu/hywse/lib/misc/extension/IterateBlockConsumer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/eu/hywse/lib/mysql/WseAsyncMySqlWrapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/eu/hywse/lib/mysql/WseMySqlWrapper$WseSqlInfoFileException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/eu/hywse/lib/mysql/WseMySqlWrapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/eu/hywse/lib/mysql/bukkit/WseAsyncMySql.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/eu/hywse/lib/mysql/bukkit/WseMySql.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/eu/hywse/lib/mysql/bungee/WseAsyncMySql.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/eu/hywse/lib/mysql/bungee/WseMySql.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/eu/hywse/lib/mysql/raw/WseAsyncMySql.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/eu/hywse/lib/mysql/raw/WseMySql.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/eu/hywse/lib/text/WseTextUtil.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
@@ -53,37 +114,123 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="WseMySqlWrapper.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/eu/hywse/lib/mysql/WseMySqlWrapper.java">
+      <file leaf-file-name="WseSerialize.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/eu/hywse/libv1_4/bukkit/WseSerialize.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="552">
-              <caret line="36" selection-start-line="36" selection-end-line="36" />
+            <state relative-caret-position="92">
+              <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#707#1058#0" />
-                <element signature="e#1064#1225#0" />
-                <element signature="e#1231#1415#0" />
-                <element signature="e#17174#17175#0" expanded="true" />
-                <element signature="e#17222#17223#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pom.xml">
+      <file leaf-file-name="AutoDocument.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/eu/hywse/libv1_4/databases/mongodb/AutoDocument.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1495">
-              <caret line="65" column="35" selection-start-line="65" selection-start-column="35" selection-end-line="65" selection-end-column="35" />
+            <state relative-caret-position="184">
+              <caret line="18" column="22" selection-start-line="18" selection-start-column="22" selection-end-line="18" selection-end-column="22" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="WseJsonConfig.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/eu/hywse/lib/config/json/WseJsonConfig.java">
+      <file leaf-file-name="WseQueue.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/eu/hywse/libv1_4/misc/WseQueue.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="207">
-              <caret line="21" selection-start-line="21" selection-end-line="21" />
+            <state relative-caret-position="529">
+              <caret line="23" column="5" lean-forward="true" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
+              <folding>
+                <element signature="e#158#159#0" expanded="true" />
+                <element signature="e#177#178#0" expanded="true" />
+                <element signature="e#231#232#0" expanded="true" />
+                <element signature="e#284#285#0" expanded="true" />
+                <element signature="e#329#330#0" expanded="true" />
+                <element signature="e#372#373#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="WseAutoQueue.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/eu/hywse/libv1_4/bukkit/WseAutoQueue.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="943">
+              <caret line="41" column="39" lean-forward="true" selection-start-line="41" selection-start-column="39" selection-end-line="41" selection-end-column="39" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#553#1180#0" expanded="true" />
+                <element signature="e#1179#1180#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DiscardingCollection.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/eu/hywse/libv1_4/misc/DiscardingCollection.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="643">
+              <caret line="140" column="35" lean-forward="true" selection-start-line="140" selection-start-column="35" selection-end-line="140" selection-end-column="36" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DocField.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/eu/hywse/libv1_4/databases/mongodb/DocField.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="184">
+              <caret line="21" column="18" selection-start-line="21" selection-start-column="18" selection-end-line="21" selection-end-column="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="WseBCU.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/eu/hywse/libv1_4/bungee/WseBCU.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="92">
+              <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="WseChatColor.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/eu/hywse/libv1_4/bungee/WseChatColor.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="161">
+              <caret line="12" column="12" selection-start-line="12" selection-start-column="12" selection-end-line="12" selection-end-column="12" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MongoManager.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/eu/hywse/libv1_4/databases/mongodb/MongoManager.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="92">
+              <caret line="14" column="7" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="WsePlayer.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/eu/hywse/libv1_4/bukkit/WsePlayer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="299">
+              <caret line="20" selection-start-line="20" selection-end-line="20" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -112,12 +259,18 @@
       <find>getpl</find>
       <find>connect</find>
       <find>debug(Str</find>
+      <find>translate</find>
+      <find>WseMySql(</find>
+      <find>setLastQuery</find>
+      <find>remove</find>
     </findStrings>
     <replaceStrings>
       <replace>JavaPlugin</replace>
       <replace>plugin</replace>
       <replace>executor</replace>
       <replace>Bukkit / Spigot</replace>
+      <replace>WseMySql(JavaPlugin plugin,</replace>
+      <replace>updateLastQuery</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -133,21 +286,9 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/eu/hywse/lib/mysql/WseAsyncMySqlBungee.java" />
-        <option value="$PROJECT_DIR$/src/main/java/eu/hywse/lib/mysql/WseAsyncMySql.java" />
-        <option value="$PROJECT_DIR$/src/main/java/eu/hywse/lib/mysql/WseMap.java" />
-        <option value="$PROJECT_DIR$/src/main/java/eu/hywse/lib/text/TextUtil.java" />
-        <option value="$PROJECT_DIR$/src/main/java/eu/hywse/lib/text/HashUtil.java" />
-        <option value="$PROJECT_DIR$/src/main/java/eu/hywse/lib/item/ItemUtil.java" />
-        <option value="$PROJECT_DIR$/src/main/java/eu/hywse/lib/bukkit/ILocation.java" />
-        <option value="$PROJECT_DIR$/src/main/java/eu/hywse/lib/bungee/WseBungeeUtils.java" />
-        <option value="$PROJECT_DIR$/src/main/java/eu/hywse/lib/misc/WseRandom.java" />
-        <option value="$PROJECT_DIR$/src/main/java/eu/hywse/lib/bukkit/WseListener.java" />
         <option value="$PROJECT_DIR$/src/main/java/eu/hywse/lib/bukkit/extension/MultiConsumer.java" />
         <option value="$PROJECT_DIR$/src/main/java/eu/hywse/lib/bukkit/extension/IterateBlockConsumer.java" />
-        <option value="$PROJECT_DIR$/src/main/java/eu/hywse/lib/bukkit/WseLocation.java" />
         <option value="$PROJECT_DIR$/src/main/java/eu/hywse/lib/item/WseItem.java" />
-        <option value="$PROJECT_DIR$/src/main/java/eu/hywse/lib/bukkit/WseCommand.java" />
         <option value="$PROJECT_DIR$/src/main/java/eu/hywse/lib/mysql/WseMySql.java" />
         <option value="$PROJECT_DIR$/.gitlab-ci.yml" />
         <option value="$PROJECT_DIR$/src/main/java/eu/hywse/lib/misc/ActionBarAPI.java" />
@@ -161,17 +302,41 @@
         <option value="$PROJECT_DIR$/src/main/java/eu/hywse/lib/mysql/raw/WseAsyncMySql.java" />
         <option value="$PROJECT_DIR$/src/main/java/eu/hywse/lib/misc/WseActionBar.java" />
         <option value="$PROJECT_DIR$/src/main/java/eu/hywse/lib/config/_class/ConfigVariable.java" />
-        <option value="$PROJECT_DIR$/src/main/java/eu/hywse/lib/config/WseConfig.java" />
-        <option value="$PROJECT_DIR$/src/main/java/eu/hywse/lib/text/WseTextUtil.java" />
         <option value="$PROJECT_DIR$/src/main/java/eu/hywse/lib/config/_class/WseConfigClass.java" />
         <option value="$PROJECT_DIR$/src/main/java/eu/hywse/lib/misc/WseSerialize.java" />
         <option value="$PROJECT_DIR$/src/main/java/eu/hywse/lib/item/WseItemUtil.java" />
         <option value="$PROJECT_DIR$/src/main/java/eu/hywse/lib/mysql/raw/WseMySql.java" />
         <option value="$PROJECT_DIR$/src/main/java/eu/hywse/lib/mysql/bungee/WseMySql.java" />
-        <option value="$PROJECT_DIR$/src/main/java/eu/hywse/lib/mysql/bukkit/WseMySql.java" />
-        <option value="$PROJECT_DIR$/src/main/java/eu/hywse/lib/mysql/WseMySqlWrapper.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/eu/hywse/lib/config/json/WseJsonConfig.java" />
+        <option value="$PROJECT_DIR$/src/main/java/eu/hywse/lib/config/WseConfig.java" />
+        <option value="$PROJECT_DIR$/src/main/java/eu/hywse/lib/config/IWseConfig.java" />
+        <option value="$PROJECT_DIR$/src/main/java/eu/hywse/lib/text/WseTextUtil.java" />
+        <option value="$PROJECT_DIR$/src/main/java/eu/hywse/lib/text/ChatColor.java" />
+        <option value="$PROJECT_DIR$/src/main/java/eu/hywse/lib/text/WseChatColor.java" />
+        <option value="$PROJECT_DIR$/src/main/java/eu/hywse/lib/bukkit/WseLocation.java" />
+        <option value="$PROJECT_DIR$/src/main/java/eu/hywse/lib/mysql/bukkit/WseMySql.java" />
+        <option value="$PROJECT_DIR$/src/main/java/eu/hywse/lib/bukkit/WseCommand.java" />
+        <option value="$PROJECT_DIR$/src/main/java/eu/hywse/lib/text/WseStringUtil.java" />
+        <option value="$PROJECT_DIR$/src/main/java/eu/hywse/lib/bukkit/WsePlayer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/eu/hywse/lib/mysql/WseMySqlWrapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/eu/hywse/libv1_2/mysql/WseMySqlWrapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/eu/hywse/libv1_2/bungee/WseBungeeUtils.java" />
+        <option value="$PROJECT_DIR$/src/main/java/eu/hywse/libv1_2/bukkit/WseBungeeUtils.java" />
+        <option value="$PROJECT_DIR$/src/main/java/eu/hywse/libv1_2/bungee/WseBCU.java" />
+        <option value="$PROJECT_DIR$/src/main/java/eu/hywse/libv1_4/misc/WseJsonConfig.java" />
+        <option value="$PROJECT_DIR$/src/main/java/eu/hywse/libv1_4/bukkit/item/WseItemUtil.java" />
+        <option value="$PROJECT_DIR$/src/main/java/eu/hywse/libv1_4/bukkit/WseSerialize.java" />
+        <option value="$PROJECT_DIR$/src/main/java/eu/hywse/libv1_4/bungee/WseChatColor.java" />
+        <option value="$PROJECT_DIR$/src/main/java/eu/hywse/libv1_4/bukkit/WseTextUtil.java" />
+        <option value="$PROJECT_DIR$/src/main/java/eu/hywse/libv1_4/databases/mongodb/AutoDocument.java" />
+        <option value="$PROJECT_DIR$/src/main/java/eu/hywse/libv1_4/databases/mongodb/DocField.java" />
+        <option value="$PROJECT_DIR$/src/main/java/eu/hywse/libv1_4/text/WseStringUtil.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/eu/hywse/libv1_4/databases/mongodb/MongoManager.java" />
+        <option value="$PROJECT_DIR$/src/main/java/eu/hywse/libv1_4/misc/DiscardingCollection.java" />
+        <option value="$PROJECT_DIR$/src/main/java/eu/hywse/libv1_4/misc/WseQueue.java" />
+        <option value="$PROJECT_DIR$/src/main/java/eu/hywse/libv1_4/bukkit/WseAutoQuery.java" />
+        <option value="$PROJECT_DIR$/src/main/java/eu/hywse/libv1_4/bukkit/WseAutoQueue.java" />
       </list>
     </option>
   </component>
@@ -218,19 +383,21 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
-    <option name="y" value="22" />
-    <option name="width" value="1936" />
-    <option name="height" value="1066" />
+    <option name="x" value="56" />
+    <option name="y" value="-27" />
+    <option name="width" value="1932" />
+    <option name="height" value="1062" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="PackagesPane" proportions="" version="1">
+    <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="AndroidView" />
       <pane id="PackagesPane">
         <subPane>
           <expand>
@@ -242,6 +409,12 @@
               <item name="WseLib" type="58d84e3e:PackageViewProjectNode" />
               <item name="WseLib" type="616d4139:PackageViewModuleNode" />
               <item name="eu.hywse.lib" type="1f31426a:PackageElementNode" />
+            </path>
+            <path>
+              <item name="WseLib" type="58d84e3e:PackageViewProjectNode" />
+              <item name="WseLib" type="616d4139:PackageViewModuleNode" />
+              <item name="eu.hywse.lib" type="1f31426a:PackageElementNode" />
+              <item name="bukkit" type="1f31426a:PackageElementNode" />
             </path>
             <path>
               <item name="WseLib" type="58d84e3e:PackageViewProjectNode" />
@@ -319,7 +492,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -327,24 +499,149 @@
               <item name="WseLib" type="b2602c69:ProjectViewProjectNode" />
               <item name="WseLib" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="WseLib" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WseLib" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="WseLib" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WseLib" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="WseLib" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WseLib" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="WseLib" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WseLib" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="libv1_4" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="WseLib" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WseLib" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="libv1_4" type="462c0819:PsiDirectoryNode" />
+              <item name="bukkit" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="WseLib" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WseLib" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="libv1_4" type="462c0819:PsiDirectoryNode" />
+              <item name="bukkit" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="WseLib" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WseLib" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="libv1_4" type="462c0819:PsiDirectoryNode" />
+              <item name="bukkit" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+              <item name="_class" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="WseLib" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WseLib" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="libv1_4" type="462c0819:PsiDirectoryNode" />
+              <item name="bukkit" type="462c0819:PsiDirectoryNode" />
+              <item name="extension" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="WseLib" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WseLib" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="libv1_4" type="462c0819:PsiDirectoryNode" />
+              <item name="bukkit" type="462c0819:PsiDirectoryNode" />
+              <item name="item" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="WseLib" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WseLib" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="libv1_4" type="462c0819:PsiDirectoryNode" />
+              <item name="bungee" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="WseLib" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WseLib" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="libv1_4" type="462c0819:PsiDirectoryNode" />
+              <item name="databases" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="WseLib" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WseLib" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="libv1_4" type="462c0819:PsiDirectoryNode" />
+              <item name="databases" type="462c0819:PsiDirectoryNode" />
+              <item name="mongodb" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="WseLib" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WseLib" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="libv1_4" type="462c0819:PsiDirectoryNode" />
+              <item name="misc" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="WseLib" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WseLib" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="libv1_4" type="462c0819:PsiDirectoryNode" />
+              <item name="text" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="last.edited.regexp" value="|" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../HorstBlocks/Plugins/AdvPlotInfo" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="copyright" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="eu.hywse.libv1_4.databases.mongodb" />
       <recent name="eu.hywse.lib.mysql.raw" />
       <recent name="eu.hywse.lib.mysql.bukkit" />
       <recent name="eu.hywse.lib.mysql.bungee" />
@@ -397,6 +694,7 @@
                 <option value="clean" />
                 <option value="package" />
                 <option value="install" />
+                <option value="deploy" />
               </list>
             </option>
             <option name="pomFileName" value="pom.xml" />
@@ -459,7 +757,40 @@
       <workItem from="1535055773574" duration="2604000" />
       <workItem from="1535114052616" duration="22000" />
       <workItem from="1535150013367" duration="1462000" />
-      <workItem from="1535212245256" duration="319000" />
+      <workItem from="1535212245256" duration="872000" />
+      <workItem from="1536090136030" duration="271000" />
+      <workItem from="1536238014335" duration="166000" />
+      <workItem from="1536499843742" duration="890000" />
+      <workItem from="1536501480479" duration="66000" />
+      <workItem from="1536502881093" duration="15000" />
+      <workItem from="1536502972069" duration="47000" />
+      <workItem from="1536503147549" duration="237000" />
+      <workItem from="1536514409955" duration="872000" />
+      <workItem from="1537194845844" duration="1076000" />
+      <workItem from="1537279301865" duration="1978000" />
+      <workItem from="1537365636631" duration="61000" />
+      <workItem from="1537365949531" duration="142000" />
+      <workItem from="1537453321762" duration="92000" />
+      <workItem from="1537453436914" duration="83000" />
+      <workItem from="1537453572436" duration="2000000" />
+      <workItem from="1537455591688" duration="788000" />
+      <workItem from="1537456623602" duration="19000" />
+      <workItem from="1537456774748" duration="70000" />
+      <workItem from="1537533700484" duration="4636000" />
+      <workItem from="1537542802466" duration="19000" />
+      <workItem from="1537543435570" duration="153000" />
+      <workItem from="1537543706894" duration="29000" />
+      <workItem from="1537621470680" duration="1359000" />
+      <workItem from="1539078258053" duration="47000" />
+      <workItem from="1539290539525" duration="747000" />
+      <workItem from="1539425699741" duration="793000" />
+      <workItem from="1540227536217" duration="604000" />
+      <workItem from="1540230940097" duration="678000" />
+      <workItem from="1540306828359" duration="47000" />
+      <workItem from="1540316653701" duration="188000" />
+      <workItem from="1540731404893" duration="1756000" />
+      <workItem from="1540742115650" duration="42000" />
+      <workItem from="1540839593318" duration="1413000" />
     </task>
     <task id="LOCAL-00001" summary="+ Gitlab CI/CD">
       <created>1534596937097</created>
@@ -482,14 +813,28 @@
       <option name="project" value="LOCAL" />
       <updated>1535212463116</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="+ toCamelCase now static&#10;~ fixed missing BungeeCord repo">
+      <created>1536090260693</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1536090260693</updated>
+    </task>
+    <task id="LOCAL-00005" summary="+ Updated WseLocation:&#10;    - countAirBlocksUnderPlayer&#10;    - getSafeLocation&#10;    - saveToConfig&#10;    - getWorldName&#10;    - UPDATED: toString&#10;    &#10;+ Updated MySql:&#10;    - Now using Lombok&#10;    - Now checks every query to see if there is a connection to the MySQL server&#10;&#10;+ WseChatColor&#10;    - Has no function yet, will soon replace ChatColor">
+      <created>1537280583802</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1537280583802</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="28250000" />
+    <option name="totallyTimeSpent" value="50187000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="22" width="1936" height="1066" extended-state="6" />
+    <frame x="-8" y="22" width="2576" height="1426" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
@@ -498,14 +843,14 @@
       <window_info id="Image Layers" order="2" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
-      <window_info anchor="right" id="Maven Projects" order="3" visible="true" weight="0.12604167" />
+      <window_info anchor="right" id="Maven Projects" order="3" visible="true" weight="0.11796875" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.3315565" />
-      <window_info anchor="bottom" id="Run" order="5" sideWeight="0.50054646" weight="0.34221748" />
+      <window_info anchor="bottom" id="Run" order="5" sideWeight="0.50054646" weight="0.24961479" />
       <window_info anchor="bottom" id="Terminal" order="10" />
       <window_info id="Capture Tool" order="3" />
       <window_info id="Designer" order="4" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49945354" visible="true" weight="0.14479166" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49945354" visible="true" weight="0.15507813" />
       <window_info anchor="bottom" id="TeamCity" order="11" weight="0.32896176" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -519,7 +864,7 @@
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="3" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32942432" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -531,181 +876,16 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="+ Gitlab CI/CD" />
     <MESSAGE value="+ Json Config&#10;~ fixed some mysql bugs" />
-    <option name="LAST_COMMIT_MESSAGE" value="+ Json Config&#10;~ fixed some mysql bugs" />
+    <MESSAGE value="+ toCamelCase now static&#10;~ fixed missing BungeeCord repo" />
+    <MESSAGE value="+ Updated WseLocation:&#10;    - countAirBlocksUnderPlayer&#10;    - getSafeLocation&#10;    - saveToConfig&#10;    - getWorldName&#10;    - UPDATED: toString&#10;    &#10;+ Updated MySql:&#10;    - Now using Lombok&#10;    - Now checks every query to see if there is a connection to the MySQL server&#10;&#10;+ WseChatColor&#10;    - Has no function yet, will soon replace ChatColor" />
+    <option name="LAST_COMMIT_MESSAGE" value="+ Updated WseLocation:&#10;    - countAirBlocksUnderPlayer&#10;    - getSafeLocation&#10;    - saveToConfig&#10;    - getWorldName&#10;    - UPDATED: toString&#10;    &#10;+ Updated MySql:&#10;    - Now using Lombok&#10;    - Now checks every query to see if there is a connection to the MySQL server&#10;&#10;+ WseChatColor&#10;    - Has no function yet, will soon replace ChatColor" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="2" />
+      <option name="time" value="10" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/eu/hywse/lib/mysql/WseMySql.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/eu/hywse/lib/item/WseItem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/eu/hywse/lib/text/WseTextUtil.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/eu/hywse/lib/item/WseItemUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="11" column="26" selection-start-line="11" selection-start-column="26" selection-end-line="11" selection-end-column="26" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/eu/hywse/lib/bukkit/WseListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="13" column="33" selection-start-line="13" selection-start-column="23" selection-end-line="13" selection-end-column="33" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/eu/hywse/lib/bukkit/WseLocation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="21" selection-start-line="21" selection-end-line="21" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/eu/hywse/lib/misc/WseMap.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/eu/hywse/lib/mysql/WseAsyncMySqlWrapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/eu/hywse/lib/bukkit/WseCommand.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="18" column="22" selection-start-line="18" selection-start-column="22" selection-end-line="18" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1035">
-          <caret line="45" selection-start-line="45" selection-end-line="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/eu/hywse/lib/mysql/WseMySql.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/eu/hywse/lib/item/WseItem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/eu/hywse/lib/text/WseTextUtil.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/eu/hywse/lib/item/WseItemUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="11" column="26" selection-start-line="11" selection-start-column="26" selection-end-line="11" selection-end-column="26" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/eu/hywse/lib/bukkit/WseCommand.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
-          <caret line="3" column="22" selection-start-line="3" selection-start-column="22" selection-end-line="3" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/eu/hywse/lib/bukkit/WseListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="13" column="33" selection-start-line="13" selection-start-column="23" selection-end-line="13" selection-end-column="33" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/eu/hywse/lib/misc/WseMap.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/eu/hywse/lib/mysql/WseAsyncMySqlWrapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/eu/hywse/lib/bukkit/WseLocation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="21" selection-start-line="21" selection-end-line="21" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/eu/hywse/lib/misc/WseMap.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/eu/hywse/lib/text/HashUtil.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/eu/hywse/lib/bungee/WseBungeeUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1380">
-          <caret line="62" column="5" selection-start-line="62" selection-start-column="5" selection-end-line="62" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/spigotmc/spigot-api/1.12.2-R0.1-SNAPSHOT/spigot-api-1.12.2-R0.1-20180712.012057-156-sources.jar!/org/bukkit/util/Consumer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="207">
@@ -713,197 +893,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/eu/hywse/lib/bukkit/WseLocation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2024">
-          <caret line="104" column="44" selection-start-line="104" selection-start-column="44" selection-end-line="104" selection-end-column="44" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/google/guava/guava/19.0/guava-19.0-sources.jar!/com/google/common/base/Preconditions.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret lean-forward="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/eu/hywse/lib/bukkit/WseCommand.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5244">
-          <caret line="252" selection-start-line="252" selection-end-line="252" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/eu/hywse/lib/item/WseItem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2737">
-          <caret line="137" column="32" selection-start-line="137" selection-start-column="32" selection-end-line="137" selection-end-column="32" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/eu/hywse/lib/bukkit/WseListener.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/com/google/guava/guava/19.0/guava-19.0-sources.jar!/com/google/common/base/Preconditions.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/eu/hywse/libv1_4/bukkit/WseListener.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="368">
           <caret line="16" column="5" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/eu/hywse/lib/config/_class/test/TestConfigClass.java" />
-    <entry file="file://$PROJECT_DIR$/.gitlab-ci.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
-          <caret line="3" column="9" selection-start-line="3" selection-start-column="9" selection-end-line="3" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/eu/hywse/lib/mysql/WseMySql.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/eu/hywse/lib/misc/extension/IterateBlockConsumer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="6" column="30" selection-start-line="6" selection-start-column="30" selection-end-line="6" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/eu/hywse/lib/config/_class/ConfigVariable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/eu/hywse/lib/text/WseTextUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2990">
-          <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/eu/hywse/lib/config/WseConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="704">
-          <caret line="248" column="23" selection-start-line="248" selection-start-column="23" selection-end-line="248" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/eu/hywse/lib/config/_class/WseConfigClass.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="282">
-          <caret line="39" lean-forward="true" selection-start-line="39" selection-end-line="39" />
-          <folding>
-            <element signature="e#3314#3315#0" expanded="true" />
-            <element signature="e#3343#3344#0" expanded="true" />
-            <element signature="e#3390#3391#0" expanded="true" />
-            <element signature="e#3426#3427#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/eu/hywse/lib/mysql/raw/WseAsyncMySql.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#321#322#0" expanded="true" />
-            <element signature="e#365#366#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/eu/hywse/lib/misc/WseActionBar.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/eu/hywse/lib/mysql/bungee/WseAsyncMySql.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="17" column="45" selection-start-line="16" selection-start-column="43" selection-end-line="17" selection-end-column="45" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/eu/hywse/lib/mysql/WseAsyncMySqlWrapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="704">
-          <caret line="40" column="33" selection-start-line="40" selection-start-column="25" selection-end-line="40" selection-end-column="33" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/eu/hywse/lib/mysql/bungee/WseMySql.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="30" column="28" selection-start-line="30" selection-start-column="28" selection-end-line="30" selection-end-column="28" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1773#1774#0" expanded="true" />
-            <element signature="e#1802#1803#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/eu/hywse/lib/item/WseItemUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="137">
-          <caret line="131" column="5" selection-start-line="131" selection-start-column="5" selection-end-line="131" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/eu/hywse/lib/misc/WseSerialize.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="506">
-          <caret line="190" selection-start-line="190" selection-end-line="190" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/eu/hywse/lib/mysql/bukkit/WseAsyncMySql.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="17" column="9" selection-start-line="17" selection-start-column="9" selection-end-line="17" selection-end-column="82" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/eu/hywse/lib/mysql/raw/WseMySql.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="20" column="5" lean-forward="true" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_171/src.zip!/java/sql/ResultSet.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="48">
@@ -911,47 +910,238 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/eu/hywse/lib/mysql/WseMySqlWrapper.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/eu/hywse/lib/config/IWseConfig.java" />
+    <entry file="jar://$MAVEN_REPOSITORY$/org/spigotmc/spigot-api/1.12.2-R0.1-SNAPSHOT/spigot-api-1.12.2-R0.1-20180712.012057-156-sources.jar!/org/bukkit/ChatColor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="552">
-          <caret line="36" selection-start-line="36" selection-end-line="36" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#707#1058#0" />
-            <element signature="e#1064#1225#0" />
-            <element signature="e#1231#1415#0" />
-            <element signature="e#17174#17175#0" expanded="true" />
-            <element signature="e#17222#17223#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="190">
+          <caret line="318" column="47" selection-end-line="371" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/eu/hywse/lib/misc/WseRandom.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/eu/hywse/libv1_4/databases/mysql/raw/WseMySql.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="229">
+        <state relative-caret-position="460">
+          <caret line="20" column="5" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/eu/hywse/libv1_4/databases/mysql/bungee/WseMySql.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="575">
+          <caret line="30" column="28" selection-start-line="30" selection-start-column="28" selection-end-line="30" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/eu/hywse/libv1_4/databases/mysql/WseAsyncMySqlWrapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="759">
+          <caret line="40" column="33" selection-start-line="40" selection-start-column="25" selection-end-line="40" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/eu/hywse/libv1_4/databases/mysql/bukkit/WseMySql.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="13" selection-start-line="13" selection-end-line="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/eu/hywse/libv1_4/bukkit/WseLocation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/spigotmc/spigot-api/1.12.2-R0.1-SNAPSHOT/spigot-api-1.12.2-R0.1-20180712.012057-156-sources.jar!/org/bukkit/entity/Player.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="31" column="17" selection-start-line="31" selection-start-column="17" selection-end-line="31" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/spigotmc/spigot-api/1.12.2-R0.1-SNAPSHOT/spigot-api-1.12.2-R0.1-20180712.012057-156-sources.jar!/org/bukkit/inventory/Inventory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="298">
+          <caret line="285" column="49" selection-start-line="285" selection-start-column="49" selection-end-line="285" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/eu/hywse/libv1_4/databases/mysql/raw/WseAsyncMySql.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/eu/hywse/libv1_4/bukkit/WseCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1656">
+          <caret line="132" column="7" selection-start-line="132" selection-start-column="7" selection-end-line="133" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_171/src.zip!/java/util/List.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2277">
+          <caret line="122" column="7" selection-start-line="122" selection-start-column="7" selection-end-line="122" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_171/src.zip!/java/lang/FunctionalInterface.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="712">
+          <caret line="67" column="18" selection-start-line="67" selection-start-column="18" selection-end-line="67" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_171/src.zip!/java/util/function/Predicate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="38" column="10" selection-start-line="38" selection-start-column="10" selection-end-line="38" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_171/src.zip!/java/util/Objects.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="321">
+          <caret line="201" column="21" selection-start-line="201" selection-start-column="21" selection-end-line="201" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_171/src.zip!/java/util/ArrayList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="574">
+          <caret line="1461" column="16" selection-start-line="1461" selection-start-column="16" selection-end-line="1461" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_171/src.zip!/java/util/Arrays.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-399">
+          <caret line="1502" column="27" selection-start-line="1502" selection-start-column="27" selection-end-line="1502" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/eu/hywse/libv1_4/databases/mysql/WseMySqlWrapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="18" column="26" selection-start-line="18" selection-start-column="26" selection-end-line="18" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/eu/hywse/libv1_4/databases/mysql/bukkit/WseAsyncMySql.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="18" column="5" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/eu/hywse/libv1_4/databases/mysql/bungee/WseAsyncMySql.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="6" column="34" selection-start-line="6" selection-start-column="27" selection-end-line="6" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/eu/hywse/libv1_4/bukkit/WseBungeeUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="12" column="39" selection-start-line="12" selection-start-column="39" selection-end-line="12" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/eu/hywse/libv1_4/bukkit/config/_class/WseConfigClass.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="46">
+          <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/eu/hywse/libv1_4/bukkit/config/_class/ConfigVariable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="46">
+          <caret line="2" column="7" lean-forward="true" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitlab-ci.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="69">
+          <caret line="3" column="9" selection-start-line="3" selection-start-column="9" selection-end-line="3" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/eu/hywse/libv1_4/bukkit/config/WseConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="344">
+          <caret line="225" column="17" selection-start-line="225" selection-start-column="17" selection-end-line="225" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/eu/hywse/libv1_4/bukkit/item/WseItem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="849">
+          <caret line="137" column="20" lean-forward="true" selection-start-line="137" selection-start-column="20" selection-end-line="137" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/eu/hywse/libv1_4/bukkit/item/WseItemUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="827">
+          <caret line="131" column="5" selection-start-line="131" selection-start-column="5" selection-end-line="131" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/eu/hywse/libv1_4/bukkit/extension/IterateBlockConsumer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="6" column="62" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/eu/hywse/libv1_4/bukkit/WseActionBar.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="46">
+          <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/eu/hywse/libv1_4/misc/WseJsonConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="9" column="22" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/eu/hywse/libv1_4/misc/WseMap.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1610">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/eu/hywse/libv1_4/misc/WseRandom.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
           <caret line="10" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/eu/hywse/libv1_4/bukkit/WseTextUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="4" column="7" selection-start-line="4" selection-start-column="7" selection-end-line="4" selection-end-column="7" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#141#142#0" expanded="true" />
-            <element signature="e#164#165#0" expanded="true" />
-            <element signature="e#199#200#0" expanded="true" />
-            <element signature="e#226#227#0" expanded="true" />
-            <element signature="e#270#271#0" expanded="true" />
-            <element signature="e#321#322#0" expanded="true" />
-            <element signature="e#366#367#0" expanded="true" />
-            <element signature="e#417#418#0" expanded="true" />
-            <element signature="e#463#464#0" expanded="true" />
-            <element signature="e#516#517#0" expanded="true" />
-            <element signature="e#557#558#0" expanded="true" />
-            <element signature="e#599#600#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/eu/hywse/lib/mysql/bukkit/WseMySql.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/eu/hywse/libv1_4/text/WseStringUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="5" column="38" selection-start-line="5" selection-start-column="38" selection-end-line="5" selection-end-column="38" />
+        <state relative-caret-position="2967">
+          <caret line="130" column="13" selection-start-line="130" selection-start-column="13" selection-end-line="130" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -960,17 +1150,111 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1495">
-          <caret line="65" column="35" selection-start-line="65" selection-start-column="35" selection-end-line="65" selection-end-column="35" />
+        <state relative-caret-position="230">
+          <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/eu/hywse/lib/config/json/WseJsonConfig.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/eu/hywse/libv1_4/databases/mongodb/DocField.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="21" selection-start-line="21" selection-end-line="21" />
+        <state relative-caret-position="184">
+          <caret line="21" column="18" selection-start-line="21" selection-start-column="18" selection-end-line="21" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/eu/hywse/libv1_4/databases/mongodb/MongoManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="14" column="7" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/eu/hywse/libv1_4/bukkit/WsePlayer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="20" selection-start-line="20" selection-end-line="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/eu/hywse/libv1_4/bukkit/WseSerialize.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/eu/hywse/libv1_4/bungee/WseBCU.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/eu/hywse/libv1_4/bungee/WseChatColor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="12" column="12" selection-start-line="12" selection-start-column="12" selection-end-line="12" selection-end-column="12" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/eu/hywse/libv1_4/databases/mongodb/AutoDocument.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="18" column="22" selection-start-line="18" selection-start-column="22" selection-end-line="18" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/eu/hywse/libv1_4/misc/DiscardingCollection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="643">
+          <caret line="140" column="35" lean-forward="true" selection-start-line="140" selection-start-column="35" selection-end-line="140" selection-end-column="36" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/eu/hywse/libv1_4/misc/WseQueue.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="529">
+          <caret line="23" column="5" lean-forward="true" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
+          <folding>
+            <element signature="e#158#159#0" expanded="true" />
+            <element signature="e#177#178#0" expanded="true" />
+            <element signature="e#231#232#0" expanded="true" />
+            <element signature="e#284#285#0" expanded="true" />
+            <element signature="e#329#330#0" expanded="true" />
+            <element signature="e#372#373#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/eu/hywse/libv1_4/bukkit/WseAutoQueue.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="943">
+          <caret line="41" column="39" lean-forward="true" selection-start-line="41" selection-start-column="39" selection-end-line="41" selection-end-column="39" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#553#1180#0" expanded="true" />
+            <element signature="e#1179#1180#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1032,6 +1316,7 @@
             <option name="proportions">
               <list>
                 <option value="0.2" />
+                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>
@@ -1051,7 +1336,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>Maven: com.google.code.gson:gson:2.8.0</last-edited>
+          <last-edited>Maven: com.google.code.gson:gson:2.8.5</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
