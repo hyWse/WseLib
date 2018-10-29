@@ -25,7 +25,7 @@ public class WseAutoQueue<T> extends WseQueue<T> {
         return new BukkitRunnable() {
             @Override
             public void run() {
-                if(hasNext()) {
+                if(!hasNext()) {
                     return;
                 }
 
