@@ -1,8 +1,7 @@
 package eu.hywse.libv1_4.misc;
 
+import com.google.common.collect.Iterables;
 import lombok.Getter;
-
-import java.util.stream.Stream;
 
 public class WseQueue<T> {
 
@@ -26,8 +25,14 @@ public class WseQueue<T> {
     }
 
     public T next() {
-        Stream<T> stream = collection.stream();
-        return stream.findFirst().isPresent() ? stream.findFirst().get() : null;
+        if(!hasNext()) {
+            return null;
+        }
+
+        T res = Iterables.get(collection, 0);
+        collection.remove(res);
+
+        return res;
     }
 
     public int getSize() {
