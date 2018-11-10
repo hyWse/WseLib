@@ -90,4 +90,8 @@ public abstract class WsePlugin extends JavaPlugin {
         sender.sendMessage(c(instance.getPrefix() + messsage));
     }
 
+    public void disablePlugin() {
+        getServer().getPluginManager().disablePlugin(this);
+    }
+
 }

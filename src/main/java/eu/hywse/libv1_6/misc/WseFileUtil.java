@@ -131,6 +131,17 @@ public class WseFileUtil {
         String userNameAndColon = user + ":" + pass;
         String basicAuthPayload = "Basic " + Base64.getEncoder().encodeToString(userNameAndColon.getBytes());
 
+        File file = new File(out);
+
+        if(!file.getParentFile().exists()) {
+            file.getParentFile().mkdirs();
+        }
+
+        if(!file.exists()) {
+            try {
+                file.createNewFile();
+            } catch (IOException ignored) { }
+        }
 
         BufferedInputStream in = null;
         FileOutputStream fos = null;
@@ -144,15 +155,14 @@ public class WseFileUtil {
             urlConnection.addRequestProperty("Authorization", basicAuthPayload);
 
             in = new BufferedInputStream(urlConnection.getInputStream());
-            fos = new FileOutputStream(out);
+            fos = new FileOutputStream(file);
 
             info.bytesRead = write(in, fos);
-
-            File file = new File(out);
             info.file = (file);
 
             result.onSuccess(file, info);
         } catch (IOException ioe) {
+            ioe.printStackTrace();
             result.onError(ioe.getMessage(), info);
         } finally {
             if (in != null) {

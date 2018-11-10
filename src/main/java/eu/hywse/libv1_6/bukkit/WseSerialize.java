@@ -17,7 +17,7 @@ public class WseSerialize {
      *
      * @param playerInventory to turn into an array of strings.
      * @return Array of strings: [ main content, armor content ]
-     * @throws IllegalStateException
+     * @throws IllegalStateException If something went wrong
      */
     public static String[] playerInventoryToBase64(PlayerInventory playerInventory) throws IllegalStateException {
         //get the main content part, this doesn't return the armor
@@ -31,13 +31,13 @@ public class WseSerialize {
      *
      * A method to serialize an {@link ItemStack} array to Base64 String.
      *
-     * <p />
+     * <p></p>
      *
      * Based off of {@link #toBase64(Inventory)}.
      *
      * @param items to turn into a Base64 String.
      * @return Base64 string of the items.
-     * @throws IllegalStateException
+     * @throws IllegalStateException If something went wrong
      */
     public static String itemStackArrayToBase64(ItemStack[] items) throws IllegalStateException {
         try {
@@ -63,7 +63,7 @@ public class WseSerialize {
     /**
      * A method to serialize an inventory to Base64 string.
      *
-     * <p />
+     * <p></p>
      *
      * Special thanks to Comphenix in the Bukkit forums or also known
      * as aadnk on GitHub.
@@ -72,7 +72,7 @@ public class WseSerialize {
      *
      * @param inventory to serialize
      * @return Base64 string of the provided inventory
-     * @throws IllegalStateException
+     * @throws IllegalStateException If something went wrong
      */
     public static String toBase64(Inventory inventory) throws IllegalStateException {
         try {
@@ -99,7 +99,7 @@ public class WseSerialize {
      *
      * A method to get an {@link Inventory} from an encoded, Base64, string.
      *
-     * <p />
+     * <p></p>
      *
      * Special thanks to Comphenix in the Bukkit forums or also known
      * as aadnk on GitHub.
@@ -108,7 +108,7 @@ public class WseSerialize {
      *
      * @param data Base64 string of data containing an inventory.
      * @return Inventory created from the Base64 string.
-     * @throws IOException
+     * @throws IOException If something went wrong
      */
     public static Inventory fromBase64(String data) throws IOException {
         try {
@@ -131,13 +131,13 @@ public class WseSerialize {
     /**
      * Gets an array of ItemStacks from Base64 string.
      *
-     * <p />
+     * <p></p>
      *
      * Base off of {@link #fromBase64(String)}.
      *
      * @param data Base64 string to convert to ItemStack array.
      * @return ItemStack array created from the Base64 string.
-     * @throws IOException
+     * @throws IOException If something went wrong
      */
     public static ItemStack[] itemStackArrayFromBase64(String data) throws IOException {
         try {

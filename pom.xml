@@ -6,7 +6,7 @@
 
     <groupId>eu.hywse</groupId>
     <artifactId>WseLib</artifactId>
-    <version>1.6</version>
+    <version>1.7</version>
     <build>
         <plugins>
             <plugin>
@@ -100,6 +100,12 @@
             <artifactId>mongo-java-driver</artifactId>
             <version>3.8.2</version>
             <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.reflections</groupId>
+            <artifactId>reflections</artifactId>
+            <version>0.9.9</version>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 

@@ -76,13 +76,14 @@ public class WseItemUtil {
      *
      * @param item ItemStack | Item
      * @param key  String | Key
-     * @return String | Value
+     * @param value Object | Value
      */
     public static void updateInfo(ItemStack item, String key, Object value) {
         ItemMeta meta = item.getItemMeta();
         List<String> lore = item.getItemMeta().hasLore() ? item.getItemMeta().getLore() : new ArrayList();
 
         boolean c = false;
+
         if (lore.size() > 0) {
             for (int i = 0; i < lore.size(); i++) {
                 String line = nc(c(lore.get(i)));
@@ -93,9 +94,11 @@ public class WseItemUtil {
                 }
             }
         }
+
         if (!c) {
             lore.add(c(key + value));
         }
+
         meta.setLore(lore);
         item.setItemMeta(meta);
     }

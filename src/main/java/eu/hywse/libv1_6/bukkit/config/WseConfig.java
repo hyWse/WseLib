@@ -1,6 +1,8 @@
 package eu.hywse.libv1_6.bukkit.config;
 
 import eu.hywse.libv1_6.bukkit.config._class.WseConfigClass;
+import lombok.Getter;
+import lombok.Setter;
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.InvalidConfigurationException;
@@ -28,11 +30,9 @@ public class WseConfig {
     private String filePath;
     private String fileName;
 
-    /**
-     * @since 1.0
-     * @return Should the file create if not exists on "getConfig()"
-     */
-    public boolean createNew = true;
+    @Getter @Setter
+    private boolean createNew = true;
+
     private FileConfiguration fConf;
 
     public WseConfig(String path, String name) {
@@ -86,8 +86,8 @@ public class WseConfig {
     }
 
     /**
+     * Saves the config to file
      * @since 1.0
-     * @return saves the config
      */
     public void saveConfig() {
         try {
@@ -98,8 +98,8 @@ public class WseConfig {
     }
 
     /**
+     * Loads the config
      * @since 1.3
-     * @return saves the config
      */
     public void loadConfig() {
         try {
@@ -111,26 +111,33 @@ public class WseConfig {
 
     /**
      * @since 2.0
+     *
+     * @param str Input String
+     *
      * @return returns a string from the config
      */
     public String getString(String str) {
         return getString(str, null);
     }
+
+
+    /**
+     * @since 2.0
+     *
+     * @param str Input
+     * @param def Default if not found in config
+     *
+     * @return returns a string from the config
+     */
     public String getString(String str, String def) {
         return ChatColor.translateAlternateColorCodes('&', getConfig().getString(str, def));
     }
 
-    @Deprecated
-    public String getString(String str, boolean dep, String... find) {
-        String tmp = getString(str);
-        for (int i = 0; i < find.length; i += 2) {
-            tmp = tmp.replace(find[i], find[i + 1]);
-        }
-        return tmp;
-    }
-
     /**
      * @since 1.0
+     *
+     * @param str Config-Path
+     *
      * @return returns an integer from the config
      */
     public int getInt(String str) {
@@ -139,6 +146,9 @@ public class WseConfig {
 
     /**
      * @since 1.0
+     *
+     * @param str Config-Path
+     *
      * @return returns a double from the config
      */
     public double getDouble(String str) {
@@ -163,6 +173,10 @@ public class WseConfig {
 
     /**
      * @since 1.1
+     *
+     * @param stringlist Config-Path
+     * @param string String to add
+     *
      * @return adds a string to a stringlist
      */
     public void addString(String stringlist, String string) {
@@ -170,7 +184,7 @@ public class WseConfig {
         if (getConfig().isSet(stringlist)) {
             tmpList = getConfig().getStringList(stringlist);
         } else {
-            tmpList = new ArrayList<String>();
+            tmpList = new ArrayList<>();
         }
         if (!tmpList.contains(string)) {
             tmpList.add(string);
@@ -180,6 +194,10 @@ public class WseConfig {
 
     /**
      * @since 1.1
+     *
+     * @param stringlist Config-Path
+     * @param string String to remove
+     *
      * @return removes a string from a stringlist
      */
     public void remString(String stringlist, String string) {
@@ -201,8 +219,11 @@ public class WseConfig {
     }
 
     /**
+     * sets the fileconfiguration
+     *
      * @since 1.2
-     * @return sets the fileconfiguration
+     *
+     * @param fConf FileConfiguration
      */
     private void setfConf(FileConfiguration fConf) {
         this.fConf = fConf;
@@ -211,6 +232,9 @@ public class WseConfig {
 
     /**
      * @since 1.2
+     *
+     * @param key Config-Path
+     *
      * @return gets all keys from a configuration section
      */
     public List<String> getKeys(String key) {
@@ -221,14 +245,15 @@ public class WseConfig {
             return list;
         }
 
-        for (String sectionstr : section.getKeys(false)) {
-            list.add(sectionstr);
-        }
+        list.addAll(section.getKeys(false));
         return list;
     }
 
     /**
      * @since 1.2
+     *
+     * @param s Config-Path
+     *
      * @return Returns an ItemStack
      */
     public ItemStack getItemStack(String s) {
@@ -237,6 +262,7 @@ public class WseConfig {
 
     /**
      * Deletes config
+     *
      * @since 1.3
      */
     public void delete() {
@@ -244,11 +270,21 @@ public class WseConfig {
         getFile().delete();
     }
 
+    /**
+     * Loads fields in a config class
+     *
+     * @param configClass Config Class
+     */
     public void loadClass(WseConfigClass configClass) {
         configClass.setConfig(this);
         configClass.load();
     }
 
+    /**
+     * Saves all fields of a config class to config
+     *
+     * @param configClass Config Class
+     */
     public void saveClass(WseConfigClass configClass) {
         configClass.setConfig(this);
         configClass.save();
@@ -257,22 +293,21 @@ public class WseConfig {
     /**
      * Adds default values
      * @since 2.0
-     * @param str   Defaults
+     * @param objects   Defaults
      */
-    public void addDefaults(String...str) {
-        for(int i = 0; i <  str.length; i++) {
-            if(str.length <= (i+1)) {
+    public void addDefaults(Object...objects) {
+        for(int i = 0; i <  objects.length; i++) {
+            if(objects.length <= (i+1)) {
                 break;
             }
 
-            String key = str[i];
+            String key = objects[i].toString();
 
             i++;
-            String val = str[i];
+            Object val = objects[i];
 
             getConfig().addDefault(key, val);
         }
-
         saveConfig();
     }
 

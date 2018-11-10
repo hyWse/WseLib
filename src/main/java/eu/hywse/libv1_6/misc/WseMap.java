@@ -75,7 +75,7 @@ public class WseMap extends HashMap<Object, Object> {
 
     /**
      * end the keys and values from the map in a fancy format
-     * --> Unlimited length
+     * = Unlimited length
      */
     public void printf() {
         printf(-1, -1);
@@ -103,7 +103,7 @@ public class WseMap extends HashMap<Object, Object> {
     /**
      * Adds a value with automatically generated key
      *
-     * @param value
+     * @param value Value
      */
     public void add(Object value) {
         int key = size();
@@ -114,7 +114,7 @@ public class WseMap extends HashMap<Object, Object> {
     /**
      * Returns the index / key of a value
      *
-     * @param value
+     * @param value Value
      * @return Object | NULL if not found
      */
     public Object getKey(Object value) {

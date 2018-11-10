@@ -93,6 +93,11 @@ public class WseStringUtil {
 
     /**
      * Calculates the similarity (a number within 0 and 1) between two strings.
+     *
+     * @param s1 Input 1
+     * @param s2 Input 2
+     *
+     * @return Similarity of strings
      */
     public static double getSimilarity(String s1, String s2) {
         LenStr lenStr = LenStr.get(s1, s2);

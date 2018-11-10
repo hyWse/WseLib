@@ -20,7 +20,7 @@ import java.util.stream.Collectors;
  * The delegated object (which is a {@code LinkedList} by default) can not  be accessed
  * from outside of the package and it should not be used since that could cause the
  * class to be useless.
- * Note that {@code DiscardingCollections} are no {@codeDeques}!
+ * Note that {@code DiscardingCollections} are no codeDeques!
  * They just use those to be able to remove the oldest element.
  *
  * @param <E> Type of the collections elements

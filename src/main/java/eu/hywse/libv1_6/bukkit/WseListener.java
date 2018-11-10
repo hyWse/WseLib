@@ -5,7 +5,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 /**
  * @author hyWse
- * @ver: 0.1
+ * @version 0.1
  */
 public class WseListener implements Listener {
 

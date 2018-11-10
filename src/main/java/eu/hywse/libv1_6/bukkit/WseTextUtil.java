@@ -9,12 +9,12 @@ import java.text.DecimalFormat;
 public class WseTextUtil {
 
     /*
-   █ -> full
-   ▓ -> triple
-   ▒ -> half
-   ░ -> empty
+       █ -> full
+       ▓ -> triple
+       ▒ -> half
+       ░ -> empty
 
-   z.B: [█████▓░░░░] 45%
+       z.B: [█████▓░░░░] 45%
     */
     private static final String pFull = "&2█";
     private static final String pTriple = "&a█";
@@ -45,7 +45,7 @@ public class WseTextUtil {
     /**
      * Converts the input to colors first, then removes it
      * Example:
-     * &bHello &1World&7! -> Hello World!
+     * &bHello &1World&7! = Hello World!
      *
      * @param i String | Input
      * @return String | Uncolirized input
@@ -104,8 +104,8 @@ public class WseTextUtil {
      * Generates a graphical progressbar.
      *
      * @param percent What percentage should be displayed?
-     * @param format  (ex. &8&l< &r%1$s &8&l| &r%2$s%% &8&l>)
-     * @return String | (ex. < ███████████ | 100% >
+     * @param format  (ex. &8&l( &r%1$s &8&l| &r%2$s%% &8&l))
+     * @return String | (ex. ( ███████████ | 100% )
      */
     public static String generateProgressBar(double percent, String format) {
         return getProgressBar(percent, format, pFull, pTriple, pHalf, pEmpty, FORMAT);
@@ -115,7 +115,7 @@ public class WseTextUtil {
      * Generates a graphical progressbar.
      *
      * @param percent What percentage should be displayed?
-     * @return String | (ex. < ███████████ | 100% >
+     * @return String | (ex. ( ███████████ | 100% )
      */
     public static String generateProgressBar(double percent) {
         return generateProgressBar(percent, "&8&l< &r%1$s &8&l| &r%2$s%% &8&l>");
@@ -127,10 +127,10 @@ public class WseTextUtil {
      * __________________________________
      * Example:
      * "&aHello, everybody! How are you?"
-     * -> "&aHello, &aeverybody! &aHow &aare &ayou?"
+     * = "&aHello, &aeverybody! &aHow &aare &ayou?"
      *
      * @param input       Input
-     * @param colorSymbol Color-Symbol (eg. '§' or '&')
+     * @param colorSymbol Color-Symbol (<pre>eg. '§' or '&'</pre>)
      * @return String
      */
     public static String repeatColor(String input, char colorSymbol) {
@@ -178,7 +178,7 @@ public class WseTextUtil {
      * __________________________________
      * Example:
      * "&aHello, everybody! How are you?"
-     * -> "&aHello, &aeverybody! &aHow &aare &ayou?"
+     * = "&aHello, &aeverybody! &aHow &aare &ayou?"
      *
      * @param input Input
      * @return String
@@ -190,18 +190,17 @@ public class WseTextUtil {
     /**
      * This function converts milliseconds into a time text: "1000 = 1 second", "61000 = 1 minute, 1 second", etc.
      *
-     * @param input         Your input in milliseconds
-     * @param calcDays      Should this function calculate days?
-     * @param calcHours     Should this function calculate hours?
-     * @param calcMinutes   Should this function calculate minutes?
-     * @param calcSeconds   Should this function calculate seconds?
-     *
+     * @param input       Your input in milliseconds
+     * @param calcDays    Should this function calculate days?
+     * @param calcHours   Should this function calculate hours?
+     * @param calcMinutes Should this function calculate minutes?
+     * @param calcSeconds Should this function calculate seconds?
      * @return String       Time as String
      */
     public static String toTime(long input, boolean calcDays, boolean calcHours, boolean calcMinutes, boolean calcSeconds) {
 
         // If everything is disabled, calculate seconds
-        if(!calcDays && !calcHours && !calcMinutes && !calcSeconds) {
+        if (!calcDays && !calcHours && !calcMinutes && !calcSeconds) {
             calcSeconds = true;
         }
 
@@ -246,8 +245,7 @@ public class WseTextUtil {
     /**
      * Converts "GOLDEN_APPLE" to "Golden Apple"
      *
-     * @param input     Your input
-     *
+     * @param input Your input
      * @return Your input in camel case
      */
     public static String toCamelCase(String input) {

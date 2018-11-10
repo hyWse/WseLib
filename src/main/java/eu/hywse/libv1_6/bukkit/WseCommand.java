@@ -165,7 +165,7 @@ public abstract class WseCommand {
 
 
 
-    private enum ParseMode {
+    public enum ParseMode {
         UNIX,
         COLON
     }

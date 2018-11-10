@@ -30,10 +30,13 @@ public abstract class WseMySqlWrapper {
 
     @Getter
     private String host;
+
     @Getter
     private String database;
+
     @Getter
     private String user;
+
     @Getter
     private int port;
 
@@ -42,8 +45,7 @@ public abstract class WseMySqlWrapper {
     @Getter
     private Connection connection;
 
-    @Getter
-    @Setter
+    @Getter @Setter
     private boolean debugMode;
 
     @Getter
@@ -370,6 +372,7 @@ public abstract class WseMySqlWrapper {
      * Updates the database and returns the number of rows affected
      *
      * @param query Query
+     * @param obj Objects
      * @return int | affected rows
      */
     public int update(String query, Object... obj) {
@@ -444,7 +447,8 @@ public abstract class WseMySqlWrapper {
      * Returns a map. Key = column name, Value = column value
      *
      * @param query Query
-     * @return Map<String                               ,                                                               Object> | Map<Column, Value>
+     * @param objects Objects
+     * @return List with result
      */
     public WseMap executeQueryMapGet(String query, Object... objects) {
         updateLastQuery();
@@ -488,7 +492,7 @@ public abstract class WseMySqlWrapper {
      * Returns a map. Key = column name, Value = column value
      *
      * @param query Query
-     * @return Map<String                                                                                                                               ,                                                                                                                                                                                                                                                               Object> | Map<Column, Value>
+     * @return List of results
      */
     public WseMap executeQueryMapSelect(String query, Object... objects) {
         updateLastQuery();
