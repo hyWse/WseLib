@@ -107,6 +107,7 @@ public class WseItemUtil {
      * Deletes a setting from a lore
      *
      * @param key  String | Key
+     * @param stack ItemStack
      */
     public static void deleteInfo(ItemStack stack, String key) {
         ItemMeta meta = stack.getItemMeta();

@@ -415,6 +415,8 @@ public abstract class WseMySqlWrapper {
      * Executes a query returns its result set
      *
      * @param query Query
+     * @param objects Objects
+     *
      * @return ResultSet
      */
     public ResultSet executeQuery(String query, Object... objects) {
@@ -492,6 +494,8 @@ public abstract class WseMySqlWrapper {
      * Returns a map. Key = column name, Value = column value
      *
      * @param query Query
+     * @param objects Objects
+     *
      * @return List of results
      */
     public WseMap executeQueryMapSelect(String query, Object... objects) {

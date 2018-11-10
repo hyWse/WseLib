@@ -44,11 +44,9 @@ public class WseTextUtil {
 
     /**
      * Converts the input to colors first, then removes it
-     * Example:
-     * &bHello &1World&7! = Hello World!
      *
      * @param i String | Input
-     * @return String | Uncolirized input
+     * @return String | Uncolorized input
      */
     public static String ncc(String i) {
         return nc(c(i));
@@ -63,7 +61,7 @@ public class WseTextUtil {
      * @param ctriple Block symbol for TRIPLE
      * @param chalf   Block symbol for HALF
      * @param cempty  Block symbol for EMPTY
-     * @return String | (ex. < ███████████ | 100% >
+     * @return ProgressBar as String
      */
     private static String getProgressBar(double percent, String format, String cfull, String ctriple, String chalf, String cempty, DecimalFormat decimalFormat) {
         StringBuilder bar = new StringBuilder();
@@ -96,7 +94,6 @@ public class WseTextUtil {
             }
         }
 
-//        String res = "&8&l< &r" + bar + " &8&l| &r&a&l" + percent + " % &r&8&l>";
         return WseChatColor.translateAlternateColorCodes('&', String.format(format, bar, decimalFormat.format(percent)));
     }
 
@@ -104,7 +101,7 @@ public class WseTextUtil {
      * Generates a graphical progressbar.
      *
      * @param percent What percentage should be displayed?
-     * @param format  (ex. &8&l( &r%1$s &8&l| &r%2$s%% &8&l))
+     * @param format Format of Progressbar
      * @return String | (ex. ( ███████████ | 100% )
      */
     public static String generateProgressBar(double percent, String format) {
@@ -124,13 +121,9 @@ public class WseTextUtil {
     /**
      * This function appends the color code of the last word / words to each new word
      * and the annoying error that colors are no longer displayed in the next line should be fixed here
-     * __________________________________
-     * Example:
-     * "&aHello, everybody! How are you?"
-     * = "&aHello, &aeverybody! &aHow &aare &ayou?"
      *
      * @param input       Input
-     * @param colorSymbol Color-Symbol (<pre>eg. '§' or '&'</pre>)
+     * @param colorSymbol Color-Symbol
      * @return String
      */
     public static String repeatColor(String input, char colorSymbol) {
@@ -175,10 +168,6 @@ public class WseTextUtil {
     /**
      * This function appends the color code of the last word / words to each new word
      * and the annoying error that colors are no longer displayed in the next line should be fixed here
-     * __________________________________
-     * Example:
-     * "&aHello, everybody! How are you?"
-     * = "&aHello, &aeverybody! &aHow &aare &ayou?"
      *
      * @param input Input
      * @return String

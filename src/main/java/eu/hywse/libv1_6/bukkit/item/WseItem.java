@@ -18,10 +18,9 @@ import static eu.hywse.libv1_6.bukkit.WseTextUtil.c;
 
 /**
  * @author hyWse
- * @ver: 0.1
+ * @version 0.1
  */
 
-@SuppressWarnings("WeakerAccess")
 public class WseItem {
 
     private ItemStack item;

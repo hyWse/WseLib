@@ -14,8 +14,8 @@ public class WseClassUtil {
      *
      * @param packageName The base package
      * @return The classes
-     * @throws ClassNotFoundException
-     * @throws IOException
+     * @throws ClassNotFoundException If a class could not be found
+     * @throws IOException If something went wrong
      */
     public static Class[] getClasses(String packageName)
             throws ClassNotFoundException, IOException {
@@ -40,7 +40,7 @@ public class WseClassUtil {
      * @param directory   The base directory
      * @param packageName The package name for classes found inside the base directory
      * @return The classes
-     * @throws ClassNotFoundException
+     * @throws ClassNotFoundException If something went wrong
      */
     public static List<Class<?>> findClasses(File directory, String packageName) throws ClassNotFoundException {
         List<Class<?>> classes = new ArrayList<>();

@@ -13,7 +13,7 @@ import org.bukkit.util.Vector;
 
 /**
  * @author hyWse
- * @ver: 0.1
+ * @version 0.1
  */
 public class WseLocation extends Location {
 
@@ -48,6 +48,14 @@ public class WseLocation extends Location {
         super(world, x, y, z, yaw, pitch);
     }
 
+    /**
+     * Iterates through every block in selection
+     *
+     * @param startPoint First Block
+     * @param endPoint Second Block
+     * @param maxIterations Max. Block amount
+     * @param action Action for every block
+     */
     public static void iterateBlocks(Location startPoint, Location endPoint, int maxIterations, IterateBlockConsumer action) {
 
         // Check world
@@ -78,28 +86,59 @@ public class WseLocation extends Location {
         }
     }
 
+    /**
+     * Iterates through every block in selection
+     * Default maxIterations = 1000
+     *
+     * @param startPoint First Block
+     * @param endPoint Second Block
+     * @param action Action for every block
+     */
     public static void iterateBlocks(Location startPoint, Location endPoint, IterateBlockConsumer action) {
         iterateBlocks(startPoint, endPoint, 1000, action);
     }
 
+    /**
+     * Returns location as string
+     * Default splitter = "//"
+     * @return String - Location as String
+     */
     @Override
     public String toString() {
         return toString("//");
     }
 
+    /**
+     * Returns location as string
+     * @param splitter Splitter betweenx,y,z,yaw,pitch,world
+     * @return String - Location as String
+     */
     public String toString(String splitter) {
         return getWorld().getName() + splitter + getX() + splitter + getY() + splitter + getZ() + splitter + getYaw() + splitter + getPitch();
     }
 
+    /**
+     * Returns the world name of location
+     * @return World-Name
+     */
     public String getWorldName() {
         return getWorld().getName();
     }
 
+    /**
+     * Saves the location as string in config
+     * @param config Config
+     * @param path Path
+     */
     public void saveToConfig(WseConfig config, String path) {
         config.getConfig().set(path, toString());
         config.saveConfig();
     }
 
+    /**
+     * Returns the highest point of a location
+     * @return Highest point of location
+     */
     public WseLocation getSafeLocation() {
 
         Block buttom = getBlock();
@@ -117,6 +156,11 @@ public class WseLocation extends Location {
         return this;
     }
 
+    /**
+     * Counts empty blocks under a player
+     * @param player Player
+     * @return Empty Block-Count as int
+     */
     public static int countAirBlocksUnderPlayer(Player player) {
         int air = 0;
         Location loc = player.getLocation();

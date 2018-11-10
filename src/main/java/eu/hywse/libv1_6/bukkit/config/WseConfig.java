@@ -18,7 +18,7 @@ import java.util.List;
 
 /**
  * @author hyWse
- * @ver: 1.3
+ * @version 1.3
  */
 public class WseConfig {
 
@@ -172,12 +172,12 @@ public class WseConfig {
     }
 
     /**
+     * adds a string to a stringlist
+     *
      * @since 1.1
      *
      * @param stringlist Config-Path
      * @param string String to add
-     *
-     * @return adds a string to a stringlist
      */
     public void addString(String stringlist, String string) {
         List<String> tmpList;
@@ -193,12 +193,12 @@ public class WseConfig {
     }
 
     /**
+     * removes a string from a stringlist
+     *
      * @since 1.1
      *
      * @param stringlist Config-Path
      * @param string String to remove
-     *
-     * @return removes a string from a stringlist
      */
     public void remString(String stringlist, String string) {
         List<String> tmpList;
@@ -292,6 +292,7 @@ public class WseConfig {
 
     /**
      * Adds default values
+     *
      * @since 2.0
      * @param objects   Defaults
      */

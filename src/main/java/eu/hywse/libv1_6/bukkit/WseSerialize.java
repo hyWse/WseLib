@@ -31,8 +31,6 @@ public class WseSerialize {
      *
      * A method to serialize an {@link ItemStack} array to Base64 String.
      *
-     * <p></p>
-     *
      * Based off of {@link #toBase64(Inventory)}.
      *
      * @param items to turn into a Base64 String.
@@ -62,8 +60,6 @@ public class WseSerialize {
 
     /**
      * A method to serialize an inventory to Base64 string.
-     *
-     * <p></p>
      *
      * Special thanks to Comphenix in the Bukkit forums or also known
      * as aadnk on GitHub.
@@ -99,8 +95,6 @@ public class WseSerialize {
      *
      * A method to get an {@link Inventory} from an encoded, Base64, string.
      *
-     * <p></p>
-     *
      * Special thanks to Comphenix in the Bukkit forums or also known
      * as aadnk on GitHub.
      *
@@ -130,8 +124,6 @@ public class WseSerialize {
 
     /**
      * Gets an array of ItemStacks from Base64 string.
-     *
-     * <p></p>
      *
      * Base off of {@link #fromBase64(String)}.
      *
