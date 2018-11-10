@@ -31,6 +31,8 @@
                         </goals>
                         <configuration>
                             <doclint>none</doclint>
+
+                            <header>WseLib - Coolste Lib auf dem CI-Server</header>
                         </configuration>
                     </execution>
                 </executions>
