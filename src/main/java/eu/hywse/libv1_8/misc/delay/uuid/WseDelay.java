@@ -13,7 +13,7 @@ public class WseDelay extends eu.hywse.libv1_8.misc.delay.WseDelay {
     }
 
     public void update(UUID id) {
-        update(id, "");
+        update(id.toString(), "");
     }
 
     public boolean check(UUID id, String reason) {

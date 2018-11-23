@@ -3,7 +3,6 @@ package eu.hywse.libv1_8.misc.delay;
 import lombok.Getter;
 
 import java.util.HashMap;
-import java.util.UUID;
 
 public class WseDelay {
 
@@ -19,35 +18,20 @@ public class WseDelay {
     /*
      * STRING SHIT!
      */
-    public void update(String id, String reason) {
-        this.used.put(id + "-" + reason, System.currentTimeMillis());
+    public void update(Object id, String reason) {
+        this.used.put(id.toString() + "-" + reason, System.currentTimeMillis());
     }
 
-    public void update(String id) {
-        update(id, "");
+    public void update(Object id) {
+        update(id.toString(), "");
     }
 
-    public boolean check(String id, String reason) {
-        return (System.currentTimeMillis() - used.getOrDefault(id + "-" + reason, 0L) <= getTime());
+    public boolean check(Object id, String reason) {
+        return (System.currentTimeMillis() - used.getOrDefault(id.toString() + "-" + reason, 0L) <= getTime());
     }
 
-    public boolean check(String id) {
-        return check(id, "");
+    public boolean check(Object id) {
+        return check(id.toString(), "");
     }
 
-    /*
-     * UUID SHIT!
-     */
-    public void update(UUID id, String reason) {
-        update(id.toString(), reason);
-    }
-    public void update(UUID id) {
-        update(id, "");
-    }
-    public boolean check(UUID id, String reason) {
-        return check(id.toString(), reason);
-    }
-    public boolean check(UUID id) {
-        return check(id.toString());
-    }
 }
