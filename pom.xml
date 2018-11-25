@@ -6,7 +6,7 @@
 
     <groupId>eu.hywse</groupId>
     <artifactId>WseLib</artifactId>
-    <version>1.8</version>
+    <version>1.9</version>
 
     <build>
         <plugins>
@@ -31,7 +31,6 @@
                         </goals>
                         <configuration>
                             <doclint>none</doclint>
-
                             <header>WseLib - Coolste Lib auf dem CI-Server</header>
                         </configuration>
                     </execution>
