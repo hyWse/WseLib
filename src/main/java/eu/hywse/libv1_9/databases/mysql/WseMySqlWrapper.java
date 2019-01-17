@@ -682,6 +682,14 @@ public abstract class WseMySqlWrapper {
      * @param statement Statement
      */
     private void logQuery(Statement statement) {
+        try {
+            if(!statement.isClosed()) {
+                statement.close();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
         if (!debugMode) return;
         debug("Executing: \"" + WseMySqlWrapper.getQueryFromStatement(statement) + "\"...");
     }
