@@ -136,22 +136,7 @@ public class WseFileUtil {
 
         File file = new File(out);
 
-        if(!file.getParentFile().exists()) {
-            file.getParentFile().mkdirs();
-        }
-
-        /*
-        if(!file.exists()) {
-            try {
-                file.createNewFile();
-            } catch (IOException ignored) {
-                ignored.printStackTrace();
-            }
-        }
-
-        BufferedInputStream in = null;
-        FileOutputStream fos = null;
-        */
+        assert file.getParentFile().exists() || file.getParentFile().mkdirs();
 
         try {
             URL serverUrl = new URL(urlStr);
@@ -164,33 +149,13 @@ public class WseFileUtil {
 
             Files.copy(urlConnection.getInputStream(), Paths.get(file.getParentFile().getPath(), file.getName()), StandardCopyOption.REPLACE_EXISTING);
 
-            /*
-            in = new BufferedInputStream(urlConnection.getInputStream());
-            fos = new FileOutputStream(file);
-
-            info.bytesRead = write(in, fos);
-            */
-
             info.file = (file);
 
             result.onSuccess(file, info);
         } catch (IOException ioe) {
             ioe.printStackTrace();
             result.onError(ioe.getMessage(), info);
-        } /*finally {
-            if (in != null) {
-                try {
-                    in.close();
-                } catch (IOException ignored) {
-                }
-            }
-            if (fos != null) {
-                try {
-                    fos.close();
-                } catch (IOException ignored) {
-                }
-            }
-        }*/
+        }
     }
 
     public int write(InputStream is, OutputStream os) throws IOException {

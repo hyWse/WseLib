@@ -406,7 +406,7 @@ public abstract class WseMySqlWrapper {
             logQuery(statement);
 
         } catch (SQLException sqlex) {
-            log("Error when updating query|update \"%s\": %s", (statement != null ? statement.toString() : query), sqlex.getMessage());
+            log("Error when updating query|updateCooldown \"%s\": %s", (statement != null ? statement.toString() : query), sqlex.getMessage());
         }
 
         return ret;

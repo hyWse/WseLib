@@ -4,6 +4,10 @@ import lombok.Getter;
 
 import java.util.HashMap;
 
+@Deprecated
+/**
+ * See {@link eu.hywse.lib.misc.delay.WseCooldown}
+ */
 public class WseDelay {
 
     @Getter

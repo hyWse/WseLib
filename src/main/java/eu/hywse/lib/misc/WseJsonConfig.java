@@ -14,16 +14,16 @@ public abstract class WseJsonConfig {
 
     private Gson gson;
 
-    public WseJsonConfig(){
+    public WseJsonConfig() {
         this.gson = new GsonBuilder().setPrettyPrinting().create();
 
         defaults();
     }
 
-    public WseJsonConfig(File file){
+    public WseJsonConfig(File file) {
         this.gson = new GsonBuilder().setPrettyPrinting().create();
 
-        if(!file.exists()){
+        if (!file.exists()) {
             defaults();
             toFile(file);
             return;
@@ -31,14 +31,16 @@ public abstract class WseJsonConfig {
         JsonParser parser = new JsonParser();
         try {
             fromJson(parser.parse(new InputStreamReader(new FileInputStream(file))));
-        }catch(Exception ex){ex.printStackTrace();}
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
     }
 
-    public void toFile(File file){
+    public void toFile(File file) {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         try {
 
-            if(!file.exists()) {
+            if (!file.exists()) {
                 System.out.println("[i] Creating file: " + (file.createNewFile() ? "success" : "failed"));
             }
 
@@ -46,11 +48,15 @@ public abstract class WseJsonConfig {
             fos.write(gson.toJson(toJson()).getBytes());
             fos.flush();
             fos.close();
-        }catch(Exception ex){ex.printStackTrace();}
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
     }
 
     public abstract JsonElement toJson();
+
     public abstract void fromJson(JsonElement json);
+
     public abstract void defaults();
 
     public Gson getGson() {

@@ -17,7 +17,8 @@ public class WseRandom extends Random {
         return nextInt(max - min + 1) + min;
     }
 
-    public <T> T arrayElement(T... items) {
+    @SafeVarargs
+    public final <T> T arrayElement(T... items) {
         return items[nextInt(items.length)];
     }
 
@@ -25,7 +26,8 @@ public class WseRandom extends Random {
         return list.get(nextInt(list.size()));
     }
 
-    public <T> int getRandom(T...obj) {
+    @SafeVarargs
+    public final <T> int getRandom(T... obj) {
         return nextInt(obj.length);
     }
 

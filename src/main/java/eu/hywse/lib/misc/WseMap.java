@@ -7,10 +7,7 @@ import java.util.HashMap;
  * @version ${VERSION}
  */
 
-@SuppressWarnings({"unused", "FieldCanBeLocal"})
-public class WseMap extends HashMap<Object, Object> {
-
-    private final String VERSION = "1.1";
+public class WseMap<K, V> extends HashMap<K, V> {
 
     // + ---------------------------------------------------------------------------------------------------- +
     // | ==================================================================================================== |
@@ -27,7 +24,7 @@ public class WseMap extends HashMap<Object, Object> {
         int longestKey = 1;
 
         /* Longest Key / Val */
-        for (Entry<Object, Object> entry : super.entrySet()) {
+        for (Entry<K, V> entry : super.entrySet()) {
             int valLen = entry.getValue().toString().length();
             int keyLen = entry.getKey().toString().length();
 
@@ -58,7 +55,7 @@ public class WseMap extends HashMap<Object, Object> {
         sout(String.format("| %" + longestKey + "s | %-" + longestVal + "s |", "Key", "Value"));
         sout("+ " + keyLine + " + " + valLine + " +");
 
-        for (Entry<Object, Object> entry : super.entrySet()) {
+        for (Entry<K, V> entry : super.entrySet()) {
             /* Key */
             String key = entry.getKey().toString();
             if (key.length() > longestKey) key = key.substring(0, longestKey - 1) + "$";
@@ -83,7 +80,7 @@ public class WseMap extends HashMap<Object, Object> {
 
 
     private void sout(String message) {
-        System.out.println("[WseMap " + VERSION + "]: " + message);
+        System.out.println("[WseMap]: " + message);
     }
 
     // + ---------------------------------------------------------------------------------------------------- +
@@ -96,19 +93,8 @@ public class WseMap extends HashMap<Object, Object> {
      * @param key       Object | Key
      * @param value     Object | Value
      */
-    public void add(Object key, Object value) {
+    public void add(K key, V value) {
         put(key, value);
-    }
-
-    /**
-     * Adds a value with automatically generated key
-     *
-     * @param value Value
-     */
-    public void add(Object value) {
-        int key = size();
-        while(containsKey(key)) key ++;
-        add(key, value);
     }
 
     /**
@@ -118,94 +104,11 @@ public class WseMap extends HashMap<Object, Object> {
      * @return Object | NULL if not found
      */
     public Object getKey(Object value) {
-        if(!containsValue(value)) return null;
-
-        for(Entry<Object, Object> entry : entrySet()) {
+        for(Entry<K, V> entry : entrySet()) {
             if(entry.getValue().equals(value)) return entry.getKey();
         }
 
         return null;
-    }
-
-    // + ---------------------------------------------------------------------------------------------------- +
-    // | ==================================================================================================== |
-    // + ---------------------------------------------------------------------------------------------------- +
-
-    /*
-     * Getters
-     */
-
-    public String getString(Object key, String def) {
-        Object res = super.getOrDefault(key, def);
-        if (res == null) return null;
-        if (!(res instanceof String)) return res.toString();
-
-        return (String) res;
-    }
-    public byte getByte(Object key, byte def) {
-        Object res = super.getOrDefault(key, def);
-        if (res == null) return -1;
-        if (!(res instanceof Byte)) return -1;
-
-        return (byte) res;
-    }
-    public short getShort(Object key, short def) {
-        Object res = super.getOrDefault(key, def);
-        if (res == null) return -1;
-        if (!(res instanceof Short)) return -1;
-
-        return (short) res;
-    }
-    public int getInt(Object key, int def) {
-        Object res = super.getOrDefault(key, def);
-        if (res == null) return -1;
-        if (!(res instanceof Integer)) return -1;
-
-        return (int) res;
-    }
-    public long getLong(Object key, long def) {
-        Object res = super.getOrDefault(key, def);
-        if (res == null) return -1;
-        if (!(res instanceof Long)) return -1;
-
-        return (long) res;
-    }
-    public float getFloat(Object key, float def) {
-        Object res = super.getOrDefault(key, def);
-        if (res == null) return -1;
-        if (!(res instanceof Float)) return -1;
-
-        return (float) res;
-    }
-    public double getDouble(Object key, int def) {
-        Object res = super.getOrDefault(key, def);
-        if (res == null) return -1;
-        if (!(res instanceof Double)) return -1;
-
-        return (double) res;
-    }
-    public boolean getBoolean(Object key, boolean def) {
-        Object res = super.getOrDefault(key, def);
-        if (res == null) return false;
-        if (!(res instanceof Boolean)) return false;
-
-        return (boolean) res;
-    }
-    public char getChar(Object key, char def) {
-        Object res = super.getOrDefault(key, def);
-        if (res == null) return '\u0000';
-        if (!(res instanceof Character)) return '\u0000';
-
-        return (char) res;
-    }
-    public WseMap getMap(int key) {
-        Object res = getOrDefault(key, new WseMap());
-
-        if(!(res instanceof WseMap)) {
-            res = new WseMap();
-        }
-
-        return (WseMap) res;
     }
 
 }

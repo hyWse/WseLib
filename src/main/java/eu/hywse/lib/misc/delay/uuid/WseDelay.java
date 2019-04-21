@@ -2,6 +2,10 @@ package eu.hywse.lib.misc.delay.uuid;
 
 import java.util.UUID;
 
+@Deprecated
+/**
+ * See {@link eu.hywse.lib.misc.delay.WseCooldown}
+ */
 public class WseDelay extends eu.hywse.lib.misc.delay.WseDelay {
 
     public WseDelay(long time) {

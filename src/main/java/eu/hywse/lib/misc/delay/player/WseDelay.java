@@ -2,6 +2,10 @@ package eu.hywse.lib.misc.delay.player;
 
 import org.bukkit.entity.Player;
 
+@Deprecated
+/**
+ * See {@link eu.hywse.lib.misc.delay.WseCooldown}
+ */
 public class WseDelay extends eu.hywse.lib.misc.delay.uuid.WseDelay {
 
     public WseDelay(long time) {
