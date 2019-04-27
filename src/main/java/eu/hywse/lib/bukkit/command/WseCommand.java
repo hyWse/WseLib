@@ -3,6 +3,8 @@ package eu.hywse.lib.bukkit.command;
 import eu.hywse.lib.text.WseStringUtil;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import net.md_5.bungee.api.chat.BaseComponent;
+import net.md_5.bungee.api.chat.ComponentBuilder;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
@@ -147,48 +149,28 @@ public abstract class WseCommand {
         return null;
     }
 
+    public void definePrefix(String prefix, boolean raw) {
+        this.prefix = raw ? prefix : "&8▌ &c" + prefix + " &8» &7";
+    }
 
     public void definePrefix(String prefix) {
-        this.prefix = prefix;
+        definePrefix(prefix, false);
     }
 
     public void sendMessage(CommandSender sender, String message, String prefix) {
-        sender.sendMessage(ChatColor.translateAlternateColorCodes('&', "&8▌ &c" + (prefix == null || prefix.length() == 0 ? getClass().getSimpleName() : prefix) + " &8> &7" + message));
+        sender.sendMessage(ChatColor.translateAlternateColorCodes('&', getPrefix() + message));
     }
 
     public void sendMessage(CommandSender sender, String message) {
         sendMessage(sender, message, this.prefix);
     }
 
+    public void sendMessage(CommandSender sender, BaseComponent[] components) {
+        sender.spigot().sendMessage(new ComponentBuilder(getPrefix()).append(components).create());
+    }
+
     public void sendNoPermissionMessage(CommandSender sender, String permission) {
         sendMessage(sender, "&cDir fehlen folgende Permissions: &6" + permission + "&c!");
-    }
-
-    public enum ParseMode {
-        UNIX,
-        COLON
-    }
-
-    @Data
-    @AllArgsConstructor
-    private static class Argument {
-        String name;
-        ArgType type;
-
-        public enum ArgType {
-            INT,
-            DBL,
-            BOOL,
-            STR,
-            TXT;
-
-            public static ArgType getType(String s) {
-                for (ArgType type : ArgType.values()) {
-                    if (type.name().toLowerCase().equalsIgnoreCase(s.toLowerCase())) return type;
-                }
-                return null;
-            }
-        }
     }
 
     /*
@@ -239,11 +221,11 @@ public abstract class WseCommand {
             arguments.add(argument);
         }
 
-        if(arguments.size() == 0) {
+        if (arguments.size() == 0) {
             return;
         }
 
-        if(args.length < arguments.size()) {
+        if (args.length < arguments.size()) {
             throw new WseCommandException("Too few args!", WseCommandException.Reason.INVALID_ARGS, args);
         }
 
@@ -253,7 +235,7 @@ public abstract class WseCommand {
         Argument lastArgument = arguments.getFirst();
 
         for (String arg : args) {
-            if(lastArgument.getType() == Argument.ArgType.TXT) continue;
+            if (lastArgument.getType() == Argument.ArgType.TXT) continue;
 
             lastArgument = arguments.getFirst();
             arguments.removeFirst();
@@ -263,17 +245,17 @@ public abstract class WseCommand {
                     continue;
 
                 case INT:
-                    if(!WseStringUtil.isInteger(arg)) {
+                    if (!WseStringUtil.isInteger(arg)) {
                         throw new WseCommandException("Arg \"" + arg + "\" is not a valid integer!", WseCommandException.Reason.INVALID_ARGS, arg);
                     }
 
                 case DBL:
-                    if(!WseStringUtil.isDouble(arg)) {
+                    if (!WseStringUtil.isDouble(arg)) {
                         throw new WseCommandException("Arg \"" + arg + "\" is not a valid double!", WseCommandException.Reason.INVALID_ARGS, arg);
                     }
 
                 case BOOL:
-                    if(!WseStringUtil.isBoolean(arg)) {
+                    if (!WseStringUtil.isBoolean(arg)) {
                         throw new WseCommandException("Arg \"" + arg + "\" is not a valid boolean!", WseCommandException.Reason.INVALID_ARGS, arg);
                     }
             }
@@ -281,7 +263,7 @@ public abstract class WseCommand {
     }
 
     public void checkPlayer(CommandSender sender) throws WseCommandException {
-        if(sender instanceof Player) return;
+        if (sender instanceof Player) return;
         throw new WseCommandException("Sender is not a player!", WseCommandException.Reason.NOT_PLAYER, sender.getName());
     }
 
@@ -391,6 +373,76 @@ public abstract class WseCommand {
         return keys;
     }
 
+    private void handleException(CommandSender sender, String label, WseCommandException ex) {
+        switch (ex.getReason()) {
+            case NO_PERMISSION:
+                sendNoPermissionMessage(sender, ex.getExtraStr());
+                break;
+
+            case INVALID_ARGS:
+                sendMessage(sender, "Ungültiger Syntax!" + (ex.getExtraStr() != null ? " &8[&a/" + label + " " + ex.getExtraStr() + "&8]" : ""));
+                break;
+
+            case NOT_PLAYER:
+                sendMessage(sender, "Nur Spieler können diesen Befehl ausführen!");
+                break;
+        }
+    }
+
+    public String getPrefix() {
+        if (prefix == null) {
+            prefix = "&6&l" + getClass().getSimpleName().replaceAll("(?i)Command", "") + " &8» &7";
+        }
+        return prefix;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public String getCommand() {
+        return command;
+    }
+
+    public List<String> getAlias() {
+        return alias;
+    }
+
+    public String getPermMessage() {
+        return permMessage;
+    }
+
+    public String getUsage() {
+        return usage;
+    }
+
+    public enum ParseMode {
+        UNIX,
+        COLON
+    }
+
+    @Data
+    @AllArgsConstructor
+    private static class Argument {
+        String name;
+        ArgType type;
+
+        public enum ArgType {
+            INT,
+            DBL,
+            BOOL,
+            STR,
+            TXT;
+
+            public static ArgType getType(String s) {
+                for (ArgType type : ArgType.values()) {
+                    if (type.name().toLowerCase().equalsIgnoreCase(s.toLowerCase())) return type;
+                }
+                return null;
+            }
+        }
+    }
+
     public static class WseCommandException extends Exception {
         String[] extra;
         Reason reason;
@@ -475,22 +527,6 @@ public abstract class WseCommand {
                 handleException(sender, label, e);
                 return null;
             }
-        }
-    }
-
-    private void handleException(CommandSender sender, String label, WseCommandException ex) {
-        switch (ex.getReason()) {
-            case NO_PERMISSION:
-                sendNoPermissionMessage(sender, ex.getExtraStr());
-                break;
-
-            case INVALID_ARGS:
-                sendMessage(sender, "Ungültiger Syntax!" + (ex.getExtraStr() != null ? " &8[&a/" + label + " " + ex.getExtraStr() + "&8]" : ""));
-                break;
-
-            case NOT_PLAYER:
-                sendMessage(sender, "Nur Spieler können diesen Befehl ausführen!");
-                break;
         }
     }
 
