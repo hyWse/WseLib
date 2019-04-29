@@ -18,6 +18,8 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 
+import static eu.hywse.lib.bukkit.WseTextUtil.c;
+
 /**
  * @author hyWse
  * @version 1.1
@@ -166,7 +168,7 @@ public abstract class WseCommand {
     }
 
     public void sendMessage(CommandSender sender, BaseComponent[] components) {
-        sender.spigot().sendMessage(new ComponentBuilder(getPrefix()).append(components).create());
+        sender.spigot().sendMessage(new ComponentBuilder(c(getPrefix())).append(components).create());
     }
 
     public void sendNoPermissionMessage(CommandSender sender, String permission) {

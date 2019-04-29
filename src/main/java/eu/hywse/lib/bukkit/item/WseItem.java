@@ -1,24 +1,26 @@
 package eu.hywse.lib.bukkit.item;
 
+import com.mojang.authlib.GameProfile;
+import com.mojang.authlib.properties.Property;
 import org.bukkit.Color;
 import org.bukkit.Material;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.enchantments.Enchantment;
+import org.bukkit.entity.EntityType;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.meta.ItemMeta;
-import org.bukkit.inventory.meta.LeatherArmorMeta;
-import org.bukkit.inventory.meta.PotionMeta;
-import org.bukkit.inventory.meta.SkullMeta;
+import org.bukkit.inventory.meta.*;
 import org.bukkit.potion.PotionEffect;
 
+import java.lang.reflect.Field;
 import java.util.ArrayList;
+import java.util.UUID;
 
 import static eu.hywse.lib.bukkit.WseTextUtil.c;
 
 /**
  * @author hyWse
- * @version 0.1
+ * @version 3
  */
 
 public class WseItem {
@@ -134,6 +136,52 @@ public class WseItem {
 
     public WseItem clearLore() {
         this.lore.clear();
+        return this;
+    }
+
+    public WseItem setSpawnType(EntityType entityType) {
+        if (this.item.getType() == Material.MONSTER_EGG) {
+            SpawnEggMeta spawnEggMeta = (SpawnEggMeta) this.item.getItemMeta();
+            spawnEggMeta.setSpawnedType(entityType);
+            this.item.setItemMeta(spawnEggMeta);
+        }
+
+        return this;
+    }
+
+    public WseItem setSkullTexture(String texture) {
+        this.item.setType(Material.SKULL_ITEM);
+        this.item.setDurability((short) 3);
+        if (texture.isEmpty()) {
+            return this;
+        }
+
+        byte[] encodedData = texture.getBytes();
+
+        ItemMeta headMeta = this.item.getItemMeta();
+        GameProfile profile = new GameProfile(UUID.randomUUID(), null);
+        profile.getProperties().put("textures", new Property("textures", new String(encodedData)));
+
+        Field profileField = null;
+        try {
+            profileField = headMeta.getClass().getDeclaredField("profile");
+        } catch (NoSuchFieldException | SecurityException e) {
+            e.printStackTrace();
+        }
+
+        if(profileField == null) {
+            System.out.println("[WseLib] Field \"profile\" not found!");
+            return this;
+        }
+        profileField.setAccessible(true);
+
+        try {
+            profileField.set(headMeta, profile);
+        } catch (IllegalArgumentException | IllegalAccessException e) {
+            e.printStackTrace();
+        }
+
+        this.item.setItemMeta(headMeta);
         return this;
     }
 
