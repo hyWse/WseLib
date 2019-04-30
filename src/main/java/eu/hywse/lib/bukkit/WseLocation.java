@@ -164,7 +164,7 @@ public class WseLocation extends Location {
     public static int countAirBlocksUnderPlayer(Player player) {
         int air = 0;
         Location loc = player.getLocation();
-        for (int y = loc.getBlockY(); y > 0; y++) {
+        for (int y = loc.getBlockY(); y > 0; y--) {
             Block block = loc.subtract(0, 1, 0).getBlock();
             if (block.getType() == Material.AIR) air++;
             else break;
