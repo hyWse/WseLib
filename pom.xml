@@ -6,7 +6,7 @@
 
     <groupId>eu.hywse</groupId>
     <artifactId>WseLib</artifactId>
-    <version>1.17</version>
+    <version>1.18</version>
 
     <build>
         <plugins>
@@ -38,22 +38,22 @@
             </plugin>
         </plugins>
 
-        <extensions>
-            <!-- Enabling the use of FTP -->
-            <extension>
-                <groupId>org.apache.maven.wagon</groupId>
-                <artifactId>wagon-ftp</artifactId>
-                <version>1.0-beta-6</version>
-            </extension>
-        </extensions>
+<!--        <extensions>-->
+<!--            &lt;!&ndash; Enabling the use of FTP &ndash;&gt;-->
+<!--            <extension>-->
+<!--                <groupId>org.apache.maven.wagon</groupId>-->
+<!--                <artifactId>wagon-ftp</artifactId>-->
+<!--                <version>1.0-beta-6</version>-->
+<!--            </extension>-->
+<!--        </extensions>-->
     </build>
 
-    <distributionManagement>
-        <repository>
-            <id>hywse-repo</id>
-            <url>ftp://hywse.eu/web/repo</url>
-        </repository>
-    </distributionManagement>
+<!--    <distributionManagement>-->
+<!--        <repository>-->
+<!--            <id>hywse-repo</id>-->
+<!--            <url>ftp://hywse.eu/web/repo</url>-->
+<!--        </repository>-->
+<!--    </distributionManagement>-->
 
     <repositories>
         <repository>

@@ -48,7 +48,7 @@ public class WseItem {
         return this;
     }
 
-    public WseItem addEnchantment(Enchantment enchantment, Integer level) {
+    public WseItem addEnchantment(Enchantment enchantment, int level) {
         this.item.addUnsafeEnchantment(enchantment, level);
         return this;
     }
