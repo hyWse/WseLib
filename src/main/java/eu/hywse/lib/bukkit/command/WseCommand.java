@@ -162,12 +162,8 @@ public abstract class WseCommand {
     return null;
   }
 
-  public void definePrefix(String prefix, boolean raw) {
-    this.prefix = raw ? prefix : "&8▌ &c" + prefix + " &8» &7";
-  }
-
-  public void definePrefix(String prefix) {
-    definePrefix(prefix, false);
+  public void defineRawPrefix(String prefix) {
+    this.prefix = c(prefix);
   }
 
   public void sendMessage(CommandSender sender, String message, String prefix) {
