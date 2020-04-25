@@ -1,123 +1,128 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns="http://maven.apache.org/POM/4.0.0"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <artifactId>WseLib</artifactId>
 
-    <groupId>eu.hywse</groupId>
-    <artifactId>WseLib</artifactId>
-    <version>1.18</version>
+  <build>
+    <plugins>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>8</source>
+          <target>8</target>
+        </configuration>
+        <groupId>org.apache.maven.plugins</groupId>
+      </plugin>
 
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <source>8</source>
-                    <target>8</target>
-                </configuration>
-            </plugin>
+      <plugin>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <executions>
+          <execution>
+            <configuration>
+              <doclint>none</doclint>
+              <header>WseLib - Coolste Lib auf dem CI-Server</header>
+            </configuration>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+            <id>attach-javadocs</id>
+          </execution>
+        </executions>
+        <groupId>org.apache.maven.plugins</groupId>
+        <version>3.0.1</version>
+      </plugin>
+    </plugins>
 
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-javadoc-plugin</artifactId>
-                <version>3.0.1</version>
-                <executions>
-                    <execution>
-                        <id>attach-javadocs</id>
-                        <goals>
-                            <goal>jar</goal>
-                        </goals>
-                        <configuration>
-                            <doclint>none</doclint>
-                            <header>WseLib - Coolste Lib auf dem CI-Server</header>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
+    <!--        <extensions>-->
+    <!--            &lt;!&ndash; Enabling the use of FTP &ndash;&gt;-->
+    <!--            <extension>-->
+    <!--                <groupId>org.apache.maven.wagon</groupId>-->
+    <!--                <artifactId>wagon-ftp</artifactId>-->
+    <!--                <version>1.0-beta-6</version>-->
+    <!--            </extension>-->
+    <!--        </extensions>-->
+  </build>
+  <dependencies>
+    <!--Spigot API-->
+    <dependency>
+      <artifactId>spigot</artifactId>
+      <groupId>org.spigotmc</groupId>
+      <scope>provided</scope>
+      <version>1.15.2-R0.1-SNAPSHOT</version>
+    </dependency>
 
-<!--        <extensions>-->
-<!--            &lt;!&ndash; Enabling the use of FTP &ndash;&gt;-->
-<!--            <extension>-->
-<!--                <groupId>org.apache.maven.wagon</groupId>-->
-<!--                <artifactId>wagon-ftp</artifactId>-->
-<!--                <version>1.0-beta-6</version>-->
-<!--            </extension>-->
-<!--        </extensions>-->
-    </build>
+    <!--Bungee-->
+    <dependency>
+      <artifactId>bungeecord-api</artifactId>
+      <groupId>net.md-5</groupId>
+      <scope>provided</scope>
+      <version>1.12-SNAPSHOT</version>
+    </dependency>
 
-<!--    <distributionManagement>-->
-<!--        <repository>-->
-<!--            <id>hywse-repo</id>-->
-<!--            <url>ftp://hywse.eu/web/repo</url>-->
-<!--        </repository>-->
-<!--    </distributionManagement>-->
+    <dependency>
+      <artifactId>guava</artifactId>
+      <groupId>com.google.guava</groupId>
+      <scope>provided</scope>
+      <version>19.0</version>
+    </dependency>
 
-    <repositories>
-        <repository>
-            <id>spigot-repo</id>
-            <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
-        </repository>
+    <dependency>
+      <artifactId>gson</artifactId>
+      <groupId>com.google.code.gson</groupId>
+      <scope>provided</scope>
+      <version>2.8.5</version>
+    </dependency>
 
-        <repository>
-            <id>bungeecord-repo</id>
-            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-        </repository>
-    </repositories>
+    <dependency>
+      <artifactId>lombok</artifactId>
+      <groupId>org.projectlombok</groupId>
+      <scope>provided</scope>
+      <version>1.18.0</version>
+    </dependency>
 
-    <dependencies>
-        <!--Spigot API-->
-        <dependency>
-            <groupId>org.spigotmc</groupId>
-            <artifactId>spigot</artifactId>
-            <version>1.12.2-R0.1-SNAPSHOT</version>
-            <scope>provided</scope>
-        </dependency>
+    <!-- https://mvnrepository.com/artifact/org.mongodb/mongo-java-driver -->
+    <dependency>
+      <artifactId>mongo-java-driver</artifactId>
+      <groupId>org.mongodb</groupId>
+      <scope>compile</scope>
+      <version>3.8.2</version>
+    </dependency>
+    <dependency>
+      <artifactId>reflections</artifactId>
+      <groupId>org.reflections</groupId>
+      <scope>provided</scope>
+      <version>0.9.9</version>
+    </dependency>
+  </dependencies>
+  <groupId>eu.hywse</groupId>
 
-        <!--Bungee-->
-        <dependency>
-            <groupId>net.md-5</groupId>
-            <artifactId>bungeecord-api</artifactId>
-            <version>1.12-SNAPSHOT</version>
-            <scope>provided</scope>
-        </dependency>
+  <modelVersion>4.0.0</modelVersion>
 
-        <dependency>
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava</artifactId>
-            <version>19.0</version>
-            <scope>provided</scope>
-        </dependency>
+  <!--    <distributionManagement>-->
+  <!--        <repository>-->
+  <!--            <id>hywse-repo</id>-->
+  <!--            <url>ftp://hywse.eu/web/repo</url>-->
+  <!--        </repository>-->
+  <!--    </distributionManagement>-->
 
-        <dependency>
-            <groupId>com.google.code.gson</groupId>
-            <artifactId>gson</artifactId>
-            <version>2.8.5</version>
-            <scope>provided</scope>
-        </dependency>
+  <repositories>
+    <repository>
+      <id>spigot-repo</id>
+      <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
+    </repository>
 
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>1.18.0</version>
-            <scope>provided</scope>
-        </dependency>
+    <repository>
+      <id>bungeecord-repo</id>
+      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+    </repository>
 
-        <!-- https://mvnrepository.com/artifact/org.mongodb/mongo-java-driver -->
-        <dependency>
-            <groupId>org.mongodb</groupId>
-            <artifactId>mongo-java-driver</artifactId>
-            <version>3.8.2</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.reflections</groupId>
-            <artifactId>reflections</artifactId>
-            <version>0.9.9</version>
-            <scope>provided</scope>
-        </dependency>
-    </dependencies>
+    <repository>
+      <id>hywse-repo</id>
+      <url>https://repo.hywse.eu/</url>
+    </repository>
+  </repositories>
+
+  <version>2.1-MC1.15</version>
 
 </project>

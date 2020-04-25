@@ -9,15 +9,15 @@ import org.bukkit.plugin.java.JavaPlugin;
  */
 public class WseListener implements Listener {
 
-	JavaPlugin plugin;
+  JavaPlugin plugin;
 
-	public WseListener(JavaPlugin plugin) {
-		this.plugin = plugin;
-		this.plugin.getServer().getPluginManager().registerEvents(this, this.plugin);
-	}
+  public WseListener(JavaPlugin plugin) {
+    this.plugin = plugin;
+    this.plugin.getServer().getPluginManager().registerEvents(this, this.plugin);
+  }
 
-	public JavaPlugin getPlugin() {
-		return this.plugin;
-	}
+  public JavaPlugin getPlugin() {
+    return this.plugin;
+  }
 
 }

@@ -6,16 +6,16 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class WseAsyncMySql extends WseAsyncMySqlWrapper {
 
-    private JavaPlugin plugin;
+  private JavaPlugin plugin;
 
-    public WseAsyncMySql(JavaPlugin plugin, WseMySqlWrapper mySql) {
-        super(mySql);
-        this.plugin = plugin;
-    }
+  public WseAsyncMySql(JavaPlugin plugin, WseMySqlWrapper mySql) {
+    super(mySql);
+    this.plugin = plugin;
+  }
 
-    @Override
-    public void runAsync(Runnable runnable) {
-        plugin.getServer().getScheduler().runTaskAsynchronously(plugin, runnable);
-    }
+  @Override
+  public void runAsync(Runnable runnable) {
+    plugin.getServer().getScheduler().runTaskAsynchronously(plugin, runnable);
+  }
 
 }

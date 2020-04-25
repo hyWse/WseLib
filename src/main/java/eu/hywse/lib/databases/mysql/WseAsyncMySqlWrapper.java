@@ -7,36 +7,37 @@ import java.util.function.Consumer;
 
 public abstract class WseAsyncMySqlWrapper {
 
-    private WseMySqlWrapper mySql;
-    private ExecutorService executor;
+  private WseMySqlWrapper mySql;
+  private ExecutorService executor;
 
-    public WseAsyncMySqlWrapper(WseMySqlWrapper mySql) {
-        this.mySql = mySql;
+  public WseAsyncMySqlWrapper(WseMySqlWrapper mySql) {
+    this.mySql = mySql;
 
-        this.executor = Executors.newCachedThreadPool();
-    }
+    this.executor = Executors.newCachedThreadPool();
+  }
 
-    public WseMySqlWrapper getMySql() {
-        return mySql;
-    }
-    public ExecutorService getExecutor() {
-        return executor;
-    }
+  public WseMySqlWrapper getMySql() {
+    return mySql;
+  }
 
-    // Functions
-    public void update(String query, Runnable runnable, Object...args) {
-        executor.execute(() -> {
-            getMySql().update(query, args);
-            runAsync(runnable);
-        });
-    }
+  public ExecutorService getExecutor() {
+    return executor;
+  }
 
-    public void query(String query, Consumer<ResultSet> consumer, Object...args) {
-        executor.execute(() -> {
-            ResultSet result = getMySql().executeQuery(query, args);
-            runAsync(() -> consumer.accept(result));
-        });
-    }
+  // Functions
+  public void update(String query, Runnable runnable, Object... args) {
+    executor.execute(() -> {
+      getMySql().update(query, args);
+      runAsync(runnable);
+    });
+  }
 
-    public abstract void runAsync(Runnable runnable);
+  public void query(String query, Consumer<ResultSet> consumer, Object... args) {
+    executor.execute(() -> {
+      ResultSet result = getMySql().executeQuery(query, args);
+      runAsync(() -> consumer.accept(result));
+    });
+  }
+
+  public abstract void runAsync(Runnable runnable);
 }

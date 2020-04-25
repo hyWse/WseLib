@@ -12,61 +12,66 @@
 
 package eu.hywse.lib.databases.mongodb;
 
-import org.bson.Document;
-
 import java.lang.reflect.Field;
+import org.bson.Document;
 
 public abstract class AutoDocument<T> {
 
 
-    public static <T> T fromDocumentUnsafe(Document document, Class<T> clazz) {
-        try {
-            return fromDocument(document, clazz);
-        } catch (IllegalAccessException | InstantiationException e) {
-            return null;
-        }
+  public static <T> T fromDocumentUnsafe(Document document, Class<T> clazz) {
+    try {
+      return fromDocument(document, clazz);
+    } catch (IllegalAccessException | InstantiationException e) {
+      return null;
+    }
+  }
+
+  public static <T> T fromDocument(Document document, Class<T> clazz)
+      throws IllegalAccessException, InstantiationException {
+    T res;
+
+    res = clazz.newInstance();
+
+    for (Field field : res.getClass().getDeclaredFields()) {
+      if (!field.isAnnotationPresent(DocField.class)) {
+        continue;
+      }
+      field.setAccessible(true);
+
+      DocField opt = field.getAnnotation(DocField.class);
+      String key = opt.key().length() == 0 ? field.getName() : opt.key();
+
+      if (!document.containsKey(key)) {
+        System.out.println("Could not find " + key + " in document! Using default");
+      } else {
+        field.set(res, document.get(key));
+      }
     }
 
-    public static <T> T fromDocument(Document document, Class<T> clazz) throws IllegalAccessException, InstantiationException {
-        T res;
+    return res;
+  }
 
-        res = clazz.newInstance();
+  public Document getDocument() {
+    Document document = new Document();
 
-        for (Field field : res.getClass().getDeclaredFields()) {
-            if (!field.isAnnotationPresent(DocField.class)) continue;
-            field.setAccessible(true);
+    for (Field field : getClass().getDeclaredFields()) {
+      if (!field.isAnnotationPresent(DocField.class)) {
+        continue;
+      }
+      field.setAccessible(true);
 
-            DocField opt = field.getAnnotation(DocField.class);
-            String key = opt.key().length() == 0 ? field.getName() : opt.key();
+      DocField opt = field.getAnnotation(DocField.class);
+      String key = opt.key().length() == 0 ? field.getName() : opt.key();
 
-            if (!document.containsKey(key)) {
-                System.out.println("Could not find " + key + " in document! Using default");
-            } else {
-                field.set(res, document.get(key));
-            }
-        }
-
-        return res;
+      try {
+        document.append(key, field.get(this));
+      } catch (IllegalAccessException e) {
+        System.out
+            .println("Can't create doc @ " + getClass().getSimpleName() + ": " + e.getMessage());
+      }
     }
 
-    public Document getDocument() {
-        Document document = new Document();
-
-        for (Field field : getClass().getDeclaredFields()) {
-            if (!field.isAnnotationPresent(DocField.class)) continue;
-            field.setAccessible(true);
-
-            DocField opt = field.getAnnotation(DocField.class);
-            String key = opt.key().length() == 0 ? field.getName() : opt.key();
-
-            try {
-                document.append(key, field.get(this));
-            } catch (IllegalAccessException e) {
-                System.out.println("Can't create doc @ " + getClass().getSimpleName() + ": " + e.getMessage());
-            }
-        }
-
-        return document;
-    }
+    return document;
+  }
 
 }

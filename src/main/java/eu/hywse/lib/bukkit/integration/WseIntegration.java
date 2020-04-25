@@ -4,45 +4,51 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class WseIntegration<I> {
 
-    private boolean enabled;
+  private boolean enabled;
 
-    private JavaPlugin plugin;
-    private TargetPlugin target;
+  private JavaPlugin plugin;
+  private TargetPlugin target;
 
-    private I integration;
+  private I integration;
 
-    public WseIntegration(JavaPlugin plugin, TargetPlugin target, IntegrationCallback<I> found) {
-        this.plugin = plugin;
-        this.target = target;
+  public WseIntegration(JavaPlugin plugin, TargetPlugin target, IntegrationCallback<I> found) {
+    this.plugin = plugin;
+    this.target = target;
 
-        check(found);
+    check(found);
+  }
+
+  public void check(IntegrationCallback<I> found) {
+
+    System.out.println(
+        "[WseIntegration @ " + plugin.getDescription().getName() + "] Checking integrations...");
+
+    if (!target.check(plugin.getServer())) {
+      System.out.println(
+          "[WseIntegration @ " + plugin.getDescription().getName() + "] Integrations: " + String
+              .join(", ", target.getTargets()) + " not found!");
+      return;
     }
 
-    public void check(IntegrationCallback<I> found) {
+    System.out.println(
+        "[WseIntegration @ " + plugin.getDescription().getName() + "] Integrations: " + String
+            .join(", ", target.getTargets()) + " found!");
 
-        System.out.println("[WseIntegration @ " + plugin.getDescription().getName() + "] Checking integrations...");
+    enabled = true;
+    this.integration = found.found();
+  }
 
-        if(!target.check(plugin.getServer())) {
-            System.out.println("[WseIntegration @ " + plugin.getDescription().getName() + "] Integrations: " + String.join(", ", target.getTargets()) + " not found!");
-            return;
-        }
+  public I getIntegration() {
+    return this.integration;
+  }
 
-        System.out.println("[WseIntegration @ " + plugin.getDescription().getName() + "] Integrations: " + String.join(", ", target.getTargets()) + " found!");
+  public boolean isEnabled() {
+    return enabled;
+  }
 
-        enabled = true;
-        this.integration = found.found();
-    }
+  public interface IntegrationCallback<I> {
 
-    public I getIntegration() {
-        return this.integration;
-    }
-
-    public interface IntegrationCallback<I> {
-        I found();
-    }
-
-    public boolean isEnabled() {
-        return enabled;
-    }
+    I found();
+  }
 
 }

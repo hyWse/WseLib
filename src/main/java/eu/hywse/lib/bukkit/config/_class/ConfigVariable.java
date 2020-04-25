@@ -10,8 +10,10 @@ import java.lang.annotation.Target;
 
 public @interface ConfigVariable {
 
-    String path() default "{name}";
-    String comment() default "";
-    boolean serialize() default false;
+  String path() default "{name}";
+
+  String comment() default "";
+
+  boolean serialize() default false;
 
 }

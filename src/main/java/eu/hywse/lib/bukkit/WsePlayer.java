@@ -9,24 +9,24 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class WsePlayer {
 
-    @Getter
-    private Player player;
+  @Getter
+  private Player player;
 
-    public WsePlayer(Player player) {
-        this.player = player;
-    }
+  public WsePlayer(Player player) {
+    this.player = player;
+  }
 
-    public boolean addItemElseDrop(JavaPlugin plugin, ItemStack...items) {
-        var v = getPlayer().getInventory().addItem(items);
+  public boolean addItemElseDrop(JavaPlugin plugin, ItemStack... items) {
+    var v = getPlayer().getInventory().addItem(items);
 
-        Bukkit.getScheduler().runTask(plugin, ()-> v.values().forEach(item -> {
-            getPlayer().getWorld().dropItem(getPlayer().getLocation(), item);
-        }));
+    Bukkit.getScheduler().runTask(plugin, () -> v.values().forEach(item -> {
+      getPlayer().getWorld().dropItem(getPlayer().getLocation(), item);
+    }));
 
-        return v.values().size() > 0;
-    }
+    return v.values().size() > 0;
+  }
 
-    public int getItems(ItemStack item) {
-        return getPlayer().getInventory().all(item).size();
-    }
+  public int getItems(ItemStack item) {
+    return getPlayer().getInventory().all(item).size();
+  }
 }

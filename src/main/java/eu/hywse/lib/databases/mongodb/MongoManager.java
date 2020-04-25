@@ -18,74 +18,73 @@ import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import eu.hywse.lib.text.WseStringUtil;
+import java.util.HashMap;
 import lombok.Getter;
 import org.bson.Document;
 
-import java.util.HashMap;
-
 public class MongoManager {
 
-    private MongoClient client;
-    private MongoDatabase database;
+  private MongoClient client;
+  private MongoDatabase database;
 
-    private HashMap<String, MongoCollection<Document>> collections;
+  private HashMap<String, MongoCollection<Document>> collections;
 
-    @Getter
-    private boolean connected;
-    @Getter
-    private String errorMessage;
+  @Getter
+  private boolean connected;
+  @Getter
+  private String errorMessage;
 
-    public MongoManager(String str) {
-        this.collections = new HashMap<>();
+  public MongoManager(String str) {
+    this.collections = new HashMap<>();
 
-        // Connection
-        ConnectionString conn = new ConnectionString(str);
-        String database = !conn.getDatabase().equalsIgnoreCase("null") ? conn.getDatabase() : "admin";
-        System.out.println("Connecting to " + String.join(", ", conn.getHosts()) + " / " + database);
+    // Connection
+    ConnectionString conn = new ConnectionString(str);
+    String database = !conn.getDatabase().equalsIgnoreCase("null") ? conn.getDatabase() : "admin";
+    System.out.println("Connecting to " + String.join(", ", conn.getHosts()) + " / " + database);
 
-        boolean found = false;
+    boolean found = false;
 
-        try {
+    try {
 
-            // Build mongo client
-            this.client = MongoClients.create(conn);
+      // Build mongo client
+      this.client = MongoClients.create(conn);
 
-            for (String name : client.listDatabaseNames()) {
-                if (name.equalsIgnoreCase(database)) {
-                    found = true;
-                    break;
-                }
-            }
-
-        } catch (Exception ex) {
-            // ex.printStackTrace();
-            connected = false;
-            errorMessage = ex.getMessage();
-            return;
+      for (String name : client.listDatabaseNames()) {
+        if (name.equalsIgnoreCase(database)) {
+          found = true;
+          break;
         }
+      }
 
-        connected = found;
-
-        if (!found) {
-            String msg = "Database " + database + " not found!";
-            String sep = WseStringUtil.repeat("#", msg.length());
-
-            System.out.println(sep);
-            System.out.println(msg);
-            System.out.println(sep);
-
-            errorMessage = "Database not found";
-            return;
-        }
-
-        this.database = client.getDatabase(database);
+    } catch (Exception ex) {
+      // ex.printStackTrace();
+      connected = false;
+      errorMessage = ex.getMessage();
+      return;
     }
 
-    public MongoCollection<Document> get(String name) {
-        if (!collections.containsKey(name)) {
-            collections.put(name, database.getCollection(name));
-        }
-        return collections.get(name);
+    connected = found;
+
+    if (!found) {
+      String msg = "Database " + database + " not found!";
+      String sep = WseStringUtil.repeat("#", msg.length());
+
+      System.out.println(sep);
+      System.out.println(msg);
+      System.out.println(sep);
+
+      errorMessage = "Database not found";
+      return;
     }
+
+    this.database = client.getDatabase(database);
+  }
+
+  public MongoCollection<Document> get(String name) {
+    if (!collections.containsKey(name)) {
+      collections.put(name, database.getCollection(name));
+    }
+    return collections.get(name);
+  }
 
 }

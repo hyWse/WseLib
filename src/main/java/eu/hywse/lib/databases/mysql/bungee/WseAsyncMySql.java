@@ -6,16 +6,16 @@ import net.md_5.bungee.api.plugin.Plugin;
 
 public class WseAsyncMySql extends WseAsyncMySqlWrapper {
 
-    private Plugin plugin;
+  private Plugin plugin;
 
-    public WseAsyncMySql(Plugin plugin, WseMySqlWrapper mySql) {
-        super(mySql);
-        this.plugin = plugin;
-    }
+  public WseAsyncMySql(Plugin plugin, WseMySqlWrapper mySql) {
+    super(mySql);
+    this.plugin = plugin;
+  }
 
-    @Override
-    public void runAsync(Runnable runnable) {
-        plugin.getProxy().getScheduler().runAsync(plugin, runnable);
-    }
+  @Override
+  public void runAsync(Runnable runnable) {
+    plugin.getProxy().getScheduler().runAsync(plugin, runnable);
+  }
 
 }

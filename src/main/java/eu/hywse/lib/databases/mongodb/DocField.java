@@ -21,6 +21,6 @@ import java.lang.annotation.Target;
 @Target(ElementType.FIELD)
 public @interface DocField {
 
-    String key() default "";
+  String key() default "";
 
 }
